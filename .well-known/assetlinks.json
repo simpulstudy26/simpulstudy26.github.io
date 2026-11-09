@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "io.github.simpulstudy26.twa",
+        "sha256_cert_fingerprints": ["5F:BB:C8:F9:44:D5:2F:F7:D6:9D:B2:B4:B8:72:F5:C4:4D:47:77:66:2A:90:15:B0:17:03:6A:14:91:94:1A:5B"]
+      }
+    }]
