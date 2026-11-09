@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIMPUL STUDY — 학습 포털</title>
+  <meta name="simpul-api-base" content="./api" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles/portal.css" />
+  <!-- PWA: 앱 설치 설정 -->
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <meta name="theme-color" content="#07111f" />
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="심풀스터디" />
+  <script>if('serviceWorker' in navigator){addEventListener('load',function(){navigator.serviceWorker.register('./sw.js').catch(function(){});});}</script>
+</head>
+<body>
+  <button id="subjectToggleBtn" class="subject-toggle" type="button" aria-expanded="true" aria-controls="subjectSidebar">과목</button>
+  <aside id="subjectSidebar" class="sidebar box">
+    <div class="logo">
+      <a href="./index.html" class="logo-link" aria-label="처음으로 돌아가기">
+        <img src="./simpul-logo.png" alt="SIMPUL 로고" class="app-logo" width="802" height="585" fetchpriority="high" decoding="async" onerror="this.style.display='none'; this.parentNode.querySelector('.mobile-logo-text').hidden=false;" />
+        <span class="mobile-logo-text" hidden>Simpul Study</span>
+      </a>
+    </div>
+    <nav class="menu">
+      <button class="active desktop-only-menu" onclick="showDashboard(this)">🏁 대시보드</button>
+      <button class="subject-menu-button" data-src="korean_hub.html" data-subject="korean" data-usage-subject="korean" onclick="showSubject(this,'국어 학습')">📖 국어</button>
+      <button class="subject-menu-button" data-src="english_hub.html" data-subject="english" data-usage-subject="english" onclick="showSubject(this,'영어 학습')">📝 영어</button>
+      <button class="subject-menu-button" data-src="math_hub.html" data-subject="math" data-usage-subject="math" onclick="showSubject(this,'수학 학습')">📐 수학</button>
+      <button class="subject-menu-button" data-src="science_hub.html" data-subject="science" data-usage-subject="science" onclick="showSubject(this,'통합과학 학습')">🧪 통합과학</button>
+      <button class="subject-menu-button" data-src="society_hub.html" data-subject="society" data-usage-subject="society" onclick="showSubject(this,'통합사회 학습')">🌍 통합사회</button>
+      <button class="subject-menu-button" data-src="history_select.html" data-subject="korean-history" data-usage-subject="korean-history" onclick="showSubject(this,'한국사 학습')">🏛️ 한국사</button>
+      <button class="subject-menu-button" data-src="japanese_hub.html" data-subject="japanese" data-usage-subject="japanese" onclick="showSubject(this,'일본어 학습')">🇯🇵 일본어</button>
+      <button class="subject-menu-button" data-src="chinese_hub.html" data-subject="chinese" data-usage-subject="chinese" onclick="showSubject(this,'중국어 학습')">🇨🇳 중국어</button>
+      <button class="subject-menu-button" data-src="info_hub.html" data-subject="info" data-usage-subject="info" onclick="showSubject(this,'정보 학습')">💻 정보</button>
+      <button class="subject-menu-button" onclick="showOperators(this)">👥 운영진</button>
+      <button class="subject-menu-button" onclick="showContributors(this)">🤝 기여자</button>
+    </nav>
+    <div class="home"><button id="sidebarCloseBtn" type="button">닫기</button></div>
+  </aside>
+
+  <main class="main">
+    <header class="header box">
+      <div>
+        <h1 id="title">기말 학습 대시보드</h1>
+        <p id="desc"></p>
+      </div>
+      <div class="profile-chip">
+        <div class="profile-avatar-wrap">
+          <img id="profileAvatar" alt="프로필" />
+          <span id="profileAvatarFallback">🙂</span>
+        </div>
+        <div class="profile-texts">
+          <strong id="profileNameLabel">이름 미설정</strong>
+          <span id="profileClassLabel">반/번호 미설정</span>
+          <button id="profileEditBtn" type="button">정보 수정</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="content box">
+      <div id="dashPanel" class="panel active">
+        <div class="dashboard-grid">
+          <article class="card box"><h3>기말 D-DAY (2026-06-29)</h3><div class="v" id="ddayValue">D-0</div></article>
+          <article class="card box"><h3>내 목표</h3><div class="v" id="goalValue">목표 설정 전</div></article>
+          <article class="card box team-card team-card-placeholder" aria-label="빈 공간"></article>
+          <article class="goal box">
+            <h3>개인 목표 설정</h3>
+            <div class="goal-form">
+              <input id="goalInput" type="text" placeholder="예: 수학 3단원 오답 2회독" />
+              <button type="button" id="goalSaveBtn">저장</button>
+            </div>
+            <p id="goalMsg" class="goal-msg"></p>
+          </article>
+          <article class="memo box">
+            <h3>오늘 메모</h3>
+            <textarea id="memoInput" placeholder="핵심만 간단히 기록하세요."></textarea>
+            <div class="memo-actions">
+              <button type="button" id="memoSaveBtn">메모 저장</button>
+            </div>
+            <p id="memoMsg" class="goal-msg"></p>
+          </article>
+        </div>
+      </div>
+      <div id="operatorsPanel" class="panel">
+        <article class="operators-panel box">
+          <div class="operators-hero">
+            <span class="operators-eyebrow">Simpul Study Team</span>
+            <h2>운영진 인사 배치 현황</h2>
+            <p>학습 포털을 함께 만들고 점검하는 운영진 명단입니다.</p>
+          </div>
+          <div class="operator-grid">
+            <section class="operator-section operator-lead">
+              <div class="operator-section-title"><span>🏁</span><h3>팀장</h3></div>
+              <ul class="operator-member-list" aria-label="팀장 명단">
+                <li>10224 최시원</li>
+              </ul>
+            </section>
+            <section class="operator-section">
+              <div class="operator-section-title"><span>💻</span><h3>개발부</h3></div>
+              <ul class="operator-member-list" aria-label="개발부 명단">
+                <li>10228 심규원</li>
+                <li>10119 정지훈</li>
+              </ul>
+            </section>
+            <section class="operator-section operator-promo">
+              <div class="operator-section-title"><span>📣</span><h3>홍보부</h3></div>
+              <ul class="operator-member-list" aria-label="홍보부 명단">
+                <li>10211 신준영</li>
+                <li>10225 최주혁</li>
+              </ul>
+            </section>
+            <section class="operator-section">
+              <div class="operator-section-title"><span>🛠️</span><h3>지원부</h3></div>
+              <ul class="operator-member-list" aria-label="지원부 명단">
+                <li>검수 10826 정현승</li>
+              </ul>
+            </section>
+            <section class="operator-section operator-data">
+              <div class="operator-section-title"><span>📚</span><h3>자료부</h3></div>
+              <ul class="operator-member-list" aria-label="자료부 명단">
+                <li>10122 최재훈</li>
+              </ul>
+            </section>
+          </div>
+        </article>
+      </div>
+      <div id="contributorsPanel" class="panel">
+        <article class="contributors-panel box">
+          <div class="contributors-hero">
+            <span class="operators-eyebrow">Simpul Contributors</span>
+            <h2>기여자 현황</h2>
+            <p>학습 포털 제작과 자료 보완에 도움을 준 기여자를 반별로 정리했습니다.</p>
+          </div>
+          <div class="contributor-grid">
+            <section class="contributor-section">
+              <div class="operator-section-title"><span>1️⃣</span><h3>1학년 1반</h3></div>
+              <p class="contributor-empty">등록된 기여자가 없습니다.</p>
+            </section>
+            <section class="contributor-section">
+              <div class="operator-section-title"><span>2️⃣</span><h3>1학년 2반</h3></div>
+              <ul class="operator-member-list" aria-label="1학년 2반 기여자 명단">
+                <li>이지훈</li>
+              </ul>
+            </section>
+            <section class="contributor-section">
+              <div class="operator-section-title"><span>3️⃣</span><h3>1학년 3반</h3></div>
+              <ul class="operator-member-list" aria-label="1학년 3반 기여자 명단">
+                <li>김승연</li>
+              </ul>
+            </section>
+            <section class="contributor-section">
+              <div class="operator-section-title"><span>4️⃣</span><h3>1학년 4반</h3></div>
+              <p class="contributor-empty">등록된 기여자가 없습니다.</p>
+            </section>
+            <section class="contributor-section">
+              <div class="operator-section-title"><span>5️⃣</span><h3>1학년 5반</h3></div>
+              <p class="contributor-empty">등록된 기여자가 없습니다.</p>
+            </section>
+            <section class="contributor-section">
+              <div class="operator-section-title"><span>6️⃣</span><h3>1학년 6반</h3></div>
+              <ul class="operator-member-list" aria-label="1학년 6반 기여자 명단">
+                <li>류주성</li>
+              </ul>
+            </section>
+            <section class="contributor-section contributor-highlight">
+              <div class="operator-section-title"><span>7️⃣</span><h3>1학년 7반</h3></div>
+              <ul class="operator-member-list" aria-label="1학년 7반 기여자 명단">
+                <li>일본어 고문 10712 서도현</li>
+              </ul>
+            </section>
+            <section class="contributor-section">
+              <div class="operator-section-title"><span>8️⃣</span><h3>1학년 8반</h3></div>
+              <ul class="operator-member-list" aria-label="1학년 8반 기여자 명단">
+                <li>라우현</li>
+              </ul>
+            </section>
+            <section class="contributor-section contributor-highlight">
+              <div class="operator-section-title"><span>🇨🇳</span><h3>중국어 고문</h3></div>
+              <ul class="operator-member-list" aria-label="중국어 고문 명단">
+                <li>10830 황은준</li>
+              </ul>
+            </section>
+          </div>
+        </article>
+      </div>
+      <div id="versionPanel" class="panel">
+        <article class="version-panel box">
+          <h2>업데이트 내역</h2>
+          <p>학습 포털 변경 사항을 버전별로 정리했습니다.</p>
+          <ul class="version-list" aria-label="버전 기록">
+            <li><b>v0.3</b><span>국어 탭별 필기 저장</span></li>
+            <li><b>v0.2</b><span>과목 선택창 접기/펼치기</span></li>
+            <li><b>v0.1</b><span>학습 포털 기본 화면</span></li>
+          </ul>
+        </article>
+      </div>
+      <div id="framePanel" class="panel">
+        <iframe id="frame" src="about:blank" title="학습 페이지"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <div id="inkToolbar" class="ink-toolbar box" role="toolbar" aria-label="손글씨 도구">
+    <span class="ink-tab-label">✍️ 손글씨</span>
+    <div class="ink-toolbar-controls">
+      <button type="button" id="inkToggleBtn">✍️ 손글씨 모드</button>
+      <button type="button" id="inkPenBtn" class="active">펜</button>
+      <button type="button" id="inkEraserBtn">지우개</button>
+      <button type="button" id="inkHighlighterBtn">하이라이트</button>
+      <button type="button" id="inkUndoBtn" title="되돌리기">↶</button>
+      <button type="button" id="inkRedoBtn" title="다시하기">↷</button>
+      <label class="ink-size-wrap">굵기 <input id="inkSizeRange" type="range" min="1" max="24" value="3" /></label>
+      <label class="ink-color-wrap">색상 <input id="inkColorInput" type="color" value="#0f172a" /></label>
+      <button type="button" id="inkClearBtn">전체 지우기</button>
+      <button type="button" id="inkSaveBtn">저장</button>
+      <span id="inkMsg" class="ink-msg"></span>
+    </div>
+  </div>
+  <canvas id="inkLayer" aria-label="전체 화면 손글씨 레이어"></canvas>
+  <div id="profileModal" class="profile-modal" role="dialog" aria-modal="true" aria-label="학습자 정보">
+    <div class="profile-modal-card box">
+      <h2>학습자 정보 입력</h2>
+      <p>처음에는 개인 수준을 확인하는 간단한 테스트가 진행됩니다. 테스트는 한 번만 진행하면 되고, 원하면 건너뛰기 버튼으로 바로 넘어갈 수 있습니다.</p>
+      <div class="profile-grid">
+        <label>반 (1~8)<input id="profileClassInput" type="number" min="1" max="8" /></label>
+        <label>번호 (1~35)<input id="profileNumberInput" type="number" min="1" max="35" /></label>
+        <label class="full">이름<input id="profileNameInput" type="text" placeholder="이름 입력" /></label>
+        <label class="full">프로필 사진<input id="profilePhotoInput" type="file" accept="image/*" /></label>
+      </div>
+      <p id="profileModalMsg" class="profile-modal-msg"></p>
+      <div class="profile-modal-actions"><button id="profileSaveBtn" type="button">저장</button></div>
+    </div>
+  </div>
+
+  <script src="./scripts/usage.js" defer></script>
+  <script src="./scripts/portal.js" defer></script>
+</body>
+</html>

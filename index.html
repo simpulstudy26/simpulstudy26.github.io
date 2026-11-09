@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIMPUL STUDY</title>
+  <meta name="simpul-api-base" content="./api" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles/index.css" />
+  <!-- PWA: 앱 설치 설정 -->
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <meta name="theme-color" content="#07111f" />
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="심풀스터디" />
+  <script>if('serviceWorker' in navigator){addEventListener('load',function(){navigator.serviceWorker.register('./sw.js').catch(function(){});});}</script>
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero box">
+      <div class="badge">SIMPUL STUDY PORTAL</div>
+      <div class="line-wrap" id="lineWrap">
+        <h1 id="line1" class="line"></h1>
+        <h2 id="line2" class="line"></h2>
+      </div>
+      <h2 id="finalLine" class="final-line"></h2>
+      <p class="tagline"> </p>
+
+      <div class="actions">
+        <a id="startStudyBtn" class="btn main" href="./portal.html" data-usage-event="start_study">학습 시작</a>
+      </div>
+    </section>
+  </main>
+  <aside id="adminUsageWidget" class="admin-widget" aria-label="관리자 이용 현황">
+    <button id="adminToggleBtn" class="admin-toggle" type="button" aria-expanded="false" aria-controls="adminPanel">관리자</button>
+    <div id="adminPanel" class="admin-panel" hidden>
+      <form id="adminLoginForm" class="admin-login">
+        <label for="adminPasswordInput">관리자 인증</label>
+        <div class="admin-login-row">
+          <input id="adminPasswordInput" type="password" autocomplete="current-password" placeholder="비밀번호" />
+          <button type="submit">확인</button>
+        </div>
+        <p id="adminMessage" class="admin-message">인증하면 학생들의 사이트 이용 현황을 볼 수 있습니다.</p>
+      </form>
+      <div id="usageStatsPanel" class="usage-stats" hidden>
+        <div class="usage-header">
+          <strong>이용 현황</strong>
+          <button id="usageRefreshBtn" type="button">새로고침</button>
+        </div>
+        <div id="usageSummary" class="usage-summary"></div>
+        <div id="usageDaily" class="usage-daily"></div>
+      </div>
+    </div>
+  </aside>
+  <script src="./scripts/usage.js" defer></script>
+  <script src="./scripts/index.js" defer></script>
+</body>
+</html>

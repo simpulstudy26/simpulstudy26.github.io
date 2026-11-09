@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>최O석 선생님 한국사</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#2563eb;--primary-light:#eff6ff;
+  --green:#16a34a;--green-light:#f0fdf4;
+  --purple:#7c3aed;--purple-light:#f5f3ff;
+  --orange:#ea580c;--orange-light:#fff7ed;
+  --teal:#0d9488;--teal-light:#f0fdfa;
+  --rose:#e11d48;--rose-light:#fff1f2;
+  --bg:#f8fafc;--surface:#fff;
+  --border:#e2e8f0;--text:#0f172a;--text-sec:#475569;
+  --shadow:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.06);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;font-size:14.5px;line-height:1.78;color:var(--text);background:var(--bg);}
+
+/* HEADER */
+.page-header{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid var(--border);box-shadow:var(--shadow);}
+.header-inner{max-width:980px;margin:0 auto;padding:10px 20px 0;}
+.subject-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-sec);margin-bottom:4px;}
+.page-title{font-size:19px;font-weight:900;color:var(--text);display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px;}
+.badge-unit{font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;background:var(--primary);color:#fff;}
+
+/* TAB BAR */
+.tab-bar{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-bottom:0;}
+.tab-bar::-webkit-scrollbar{display:none;}
+.tab-btn{display:flex;align-items:center;gap:5px;padding:8px 16px;border:none;background:none;font-family:inherit;font-size:13px;font-weight:500;color:var(--text-sec);cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;transition:color .15s;}
+.tab-btn:hover{color:var(--text);}
+.tab-btn.active{color:var(--primary);border-bottom-color:var(--primary);font-weight:700;}
+.tab-num{width:18px;height:18px;border-radius:50%;background:var(--border);display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;}
+.tab-btn.active .tab-num{background:var(--primary);color:#fff;}
+
+/* CONTENT */
+.content-wrap{max-width:980px;margin:0 auto;padding:28px 20px 100px;}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+.unit-banner{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--primary);background:var(--primary-light);padding:4px 12px;border-radius:20px;margin-bottom:18px;}
+
+/* SECTION TITLES */
+.section-title{font-size:17px;font-weight:700;color:var(--text);border-bottom:2px solid var(--primary);padding-bottom:6px;margin:28px 0 14px;}
+.section-title.green{border-color:var(--green);}
+.section-title.purple{border-color:var(--purple);}
+.section-title.orange{border-color:var(--orange);}
+.section-title.rose{border-color:var(--rose);}
+.section-title.teal{border-color:var(--teal);}
+.subsection-title{font-size:14.5px;font-weight:700;border-left:3px solid var(--primary);padding-left:9px;margin:18px 0 10px;color:var(--text);}
+.subsection-title.green{border-color:var(--green);}
+.subsection-title.purple{border-color:var(--purple);}
+.subsection-title.orange{border-color:var(--orange);}
+.subsection-title.rose{border-color:var(--rose);}
+.subsection-title.teal{border-color:var(--teal);}
+
+/* BOX LIBRARY */
+.def-box,.green-box,.purple-box,.teal-box,.orange-box,.rose-box{border-radius:0 8px 8px 0;padding:12px 14px;margin:10px 0;font-size:13.5px;}
+.def-box{border-left:4px solid var(--primary);background:var(--primary-light);}
+.green-box{border-left:4px solid var(--green);background:var(--green-light);}
+.purple-box{border-left:4px solid var(--purple);background:var(--purple-light);}
+.teal-box{border-left:4px solid var(--teal);background:var(--teal-light);}
+.orange-box{border-left:4px solid var(--orange);background:var(--orange-light);}
+.rose-box{border-left:4px solid var(--rose);background:var(--rose-light);}
+.note{background:#fefce8;border-left:4px solid #ca8a04;border-radius:0 8px 8px 0;padding:11px 14px;margin:10px 0;font-size:13px;}
+.tip{background:var(--green-light);border-left:4px solid var(--green);border-radius:0 8px 8px 0;padding:11px 14px;margin:10px 0;font-size:13px;}
+.warning{background:var(--rose-light);border-left:4px solid var(--rose);border-radius:0 8px 8px 0;padding:11px 14px;margin:10px 0;font-size:13px;}
+
+/* FACTOR GRID */
+.factor-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0;}
+.factor-grid.three{grid-template-columns:1fr 1fr 1fr;}
+.factor-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:13px 14px;border-top:3px solid var(--border);}
+.factor-card.blue{border-top-color:var(--primary);}
+.factor-card.green{border-top-color:var(--green);}
+.factor-card.purple{border-top-color:var(--purple);}
+.factor-card.orange{border-top-color:var(--orange);}
+.factor-card.rose{border-top-color:var(--rose);}
+.factor-card.teal{border-top-color:var(--teal);}
+.factor-card h4{font-size:13px;font-weight:700;margin-bottom:5px;}
+.factor-card p{font-size:12.5px;color:var(--text-sec);}
+
+/* CMP TABLE */
+.cmp-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;}
+.cmp-table th,.cmp-table td{padding:8px 11px;border:1px solid var(--border);text-align:left;vertical-align:top;}
+.cmp-table .th-primary{background:var(--primary);color:#fff;}
+.cmp-table .th-green{background:var(--green);color:#fff;}
+.cmp-table .th-orange{background:var(--orange);color:#fff;}
+.cmp-table .th-purple{background:var(--purple);color:#fff;}
+.cmp-table .th-teal{background:var(--teal);color:#fff;}
+.cmp-table tbody tr:nth-child(even){background:#f8fafc;}
+.td-k{font-weight:700;color:var(--primary);}
+.td-k-orange{font-weight:700;color:var(--orange);}
+
+/* SOURCE BOX */
+.source-box{background:#f8fafc;border:1px solid var(--border);border-radius:8px;padding:13px 15px;margin:12px 0;font-size:13px;}
+.source-label{font-size:12px;font-weight:900;color:var(--text);display:block;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border);}
+.source-sub{font-size:11.5px;font-weight:700;color:var(--text-sec);background:var(--border);display:inline-block;padding:1px 8px;border-radius:4px;margin:6px 0 4px;}
+.source-box blockquote{font-style:italic;color:#374151;border-left:3px solid var(--border);padding-left:10px;margin-top:4px;font-size:12.5px;line-height:1.8;}
+.source-box p{font-size:13px;line-height:1.75;margin-top:4px;}
+.source-box cite{display:block;font-size:11.5px;color:var(--text-sec);margin-top:5px;text-align:right;}
+.source-note{font-size:12px;color:var(--text-sec);background:var(--primary-light);border-radius:6px;padding:6px 10px;margin-top:8px;line-height:1.6;}
+
+/* TIMELINE — 핵심 수정: dot는 번호/아이콘만, 날짜·이름은 tl-tag로 */
+.timeline{margin:14px 0;}
+.tl-item{display:flex;gap:14px;margin-bottom:14px;align-items:flex-start;}
+.tl-dot{width:36px;height:36px;border-radius:50%;background:var(--primary);color:#fff;font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.tl-dot.green{background:var(--green);}
+.tl-dot.purple{background:var(--purple);}
+.tl-dot.orange{background:var(--orange);}
+.tl-dot.rose{background:var(--rose);}
+.tl-dot.teal{background:var(--teal);}
+.tl-content{flex:1;}
+.tl-tag{display:inline-block;font-size:11.5px;font-weight:700;padding:1px 9px;border-radius:20px;margin-bottom:4px;}
+.tl-tag.blue{background:var(--primary-light);color:var(--primary);}
+.tl-tag.green{background:var(--green-light);color:var(--green);}
+.tl-tag.purple{background:var(--purple-light);color:var(--purple);}
+.tl-tag.orange{background:var(--orange-light);color:var(--orange);}
+.tl-tag.rose{background:var(--rose-light);color:var(--rose);}
+.tl-tag.teal{background:var(--teal-light);color:var(--teal);}
+.tl-title{font-weight:700;font-size:13.5px;margin-bottom:3px;}
+.tl-body{font-size:13px;color:var(--text-sec);}
+.tl-line{width:2px;background:var(--border);margin-left:17px;height:12px;}
+
+/* PIE CHART (CSS only) */
+.pie-wrap{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin:12px 0;}
+.pie-chart{position:relative;width:100px;height:100px;border-radius:50%;flex-shrink:0;}
+.pie-label-box{font-size:12.5px;}
+.pie-label-box .pie-title{font-weight:700;font-size:13px;margin-bottom:6px;}
+.pie-legend{display:flex;flex-direction:column;gap:4px;}
+.pie-legend-item{display:flex;align-items:center;gap:6px;}
+.pie-legend-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;}
+.chart-wrap{display:flex;gap:32px;flex-wrap:wrap;margin:14px 0;}
+.chart-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px;flex:1;min-width:220px;}
+.chart-card-title{font-size:12px;font-weight:700;color:var(--text-sec);margin-bottom:10px;}
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:12px;}
+.bar-label{width:72px;font-weight:500;flex-shrink:0;text-align:right;}
+.bar-track{flex:1;height:18px;background:#f1f5f9;border-radius:4px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:4px;display:flex;align-items:center;justify-content:flex-end;padding-right:5px;font-size:11px;font-weight:700;color:#fff;}
+.bar-pct{width:36px;font-weight:700;flex-shrink:0;}
+
+/* QUIZ ENGINE */
+.quiz-section{margin-top:40px;border-top:2px dashed var(--border);padding-top:28px;}
+.quiz-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px;}
+.quiz-title{font-size:15px;font-weight:900;color:var(--text);}
+.scoreboard{display:flex;gap:8px;flex-wrap:wrap;}
+.score-chip{font-size:12px;font-weight:700;padding:3px 11px;border-radius:20px;border:2px solid;}
+.score-chip.ox-chip{border-color:var(--primary);color:var(--primary);background:var(--primary-light);}
+.score-chip.mc-chip{border-color:var(--green);color:var(--green);background:var(--green-light);}
+.score-chip.hard-chip{border-color:var(--purple);color:var(--purple);background:var(--purple-light);}
+.quiz-type-bar{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+.qtype-btn{display:flex;align-items:center;gap:5px;padding:7px 14px;border-radius:8px;border:2px solid var(--border);background:#fff;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;transition:all .15s;}
+.qtype-btn:hover{border-color:#94a3b8;}
+.qtype-btn.active-ox{border-color:var(--primary);background:var(--primary-light);color:var(--primary);}
+.qtype-btn.active-mc{border-color:var(--green);background:var(--green-light);color:var(--green);}
+.qtype-btn.active-hard{border-color:var(--purple);background:var(--purple-light);color:var(--purple);}
+.qtype-count{font-size:11px;background:rgba(0,0,0,.09);padding:1px 6px;border-radius:10px;}
+.q-progress-wrap{background:#f1f5f9;border-radius:20px;height:7px;margin-bottom:18px;overflow:hidden;}
+.q-progress-bar{height:100%;border-radius:20px;background:var(--primary);transition:width .3s;}
+.q-progress-bar.mc-bar{background:var(--green);}
+.q-progress-bar.hard-bar{background:var(--purple);}
+.q-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:12px;box-shadow:var(--shadow);transition:border-color .15s;}
+.q-card.answered-correct{border-color:var(--green);}
+.q-card.answered-wrong{border-color:var(--rose);}
+.q-meta{display:flex;align-items:center;gap:7px;margin-bottom:8px;}
+.q-num{font-size:11.5px;font-weight:700;color:var(--text-sec);}
+.q-difficulty{font-size:11px;font-weight:700;padding:1px 7px;border-radius:10px;}
+.diff-basic{background:var(--primary-light);color:var(--primary);}
+.diff-mid{background:var(--green-light);color:var(--green);}
+.diff-hard{background:var(--purple-light);color:var(--purple);}
+.q-text{font-size:14px;font-weight:500;line-height:1.7;margin-bottom:10px;white-space:pre-line;}
+.ox-row{display:flex;gap:10px;}
+.ox-btn{flex:1;padding:11px;border-radius:8px;border:2px solid var(--border);background:#fff;font-size:22px;cursor:pointer;transition:all .15s;font-family:inherit;}
+.ox-btn:hover:not([disabled]){border-color:var(--primary);background:var(--primary-light);}
+.ox-btn.picked-correct{border-color:var(--green);background:var(--green-light);}
+.ox-btn.picked-wrong{border-color:var(--rose);background:var(--rose-light);}
+.ox-btn.reveal-correct{border-color:var(--green);background:var(--green-light);}
+.ox-btn[disabled]{cursor:default;opacity:.8;}
+.mc-options{display:flex;flex-direction:column;gap:7px;}
+.mc-opt{display:flex;align-items:flex-start;gap:9px;padding:10px 12px;border-radius:8px;border:2px solid var(--border);background:#fff;cursor:pointer;transition:all .15s;font-family:inherit;font-size:13.5px;text-align:left;width:100%;}
+.mc-opt:hover:not([disabled]){border-color:var(--green);background:var(--green-light);}
+.mc-opt.correct{border-color:var(--green);background:var(--green-light);}
+.mc-opt.wrong{border-color:var(--rose);background:var(--rose-light);}
+.mc-opt[disabled]{cursor:default;opacity:.85;}
+.mc-opt-letter{font-weight:700;color:var(--text-sec);flex-shrink:0;min-width:18px;}
+.q-feedback{margin-top:10px;padding:10px 12px;border-radius:7px;font-size:13px;line-height:1.6;}
+.q-feedback.correct{background:var(--green-light);color:#14532d;border-left:3px solid var(--green);}
+.q-feedback.wrong{background:var(--rose-light);color:#881337;border-left:3px solid var(--rose);}
+.quiz-result{background:#fff;border:2px solid var(--primary);border-radius:12px;padding:24px;margin-top:16px;text-align:center;}
+.result-title{font-size:20px;font-weight:900;margin-bottom:6px;}
+.result-score{font-size:40px;font-weight:900;color:var(--primary);margin:10px 0;}
+.result-msg{font-size:14px;color:var(--text-sec);margin-bottom:16px;}
+.mini-bars{display:flex;flex-direction:column;gap:8px;margin:14px 0;text-align:left;}
+.mini-bar-row{display:flex;align-items:center;gap:10px;font-size:12.5px;}
+.mini-bar-label{width:60px;font-weight:700;}
+.mini-bar-wrap{flex:1;background:#f1f5f9;border-radius:10px;height:8px;overflow:hidden;}
+.mini-bar-fill{height:100%;border-radius:10px;background:var(--primary);}
+.mini-bar-fill.mc-fill{background:var(--green);}
+.mini-bar-fill.hard-fill{background:var(--purple);}
+.mini-bar-pct{width:38px;text-align:right;font-weight:700;}
+.reset-btn{padding:10px 28px;background:var(--primary);color:#fff;border:none;border-radius:8px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;margin-top:6px;}
+.reset-btn:hover{background:#1d4ed8;}
+
+/* TOTOP */
+.totop{position:fixed;bottom:24px;right:20px;width:40px;height:40px;border-radius:50%;background:var(--primary);color:#fff;border:none;font-size:18px;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;z-index:200;}
+
+@media(max-width:680px){
+  .factor-grid,.factor-grid.three{grid-template-columns:1fr;}
+  .ox-row{flex-direction:column;}
+  .cmp-table{font-size:12px;}
+  .chart-wrap{flex-direction:column;}
+}
+
+/* CONCEPT MAP */
+.map-section{margin-bottom:28px;}
+.map-root{border-radius:10px;overflow:hidden;margin-bottom:8px;}
+.map-root-head{display:flex;align-items:center;gap:8px;padding:11px 16px;font-weight:700;font-size:14px;cursor:pointer;border:none;width:100%;text-align:left;font-family:inherit;transition:opacity .15s;}
+.map-root-head:hover{opacity:.85;}
+.map-root-head .map-root-icon{font-size:16px;}
+.map-children{display:flex;flex-wrap:wrap;gap:7px;padding:10px 14px 12px;background:#f8fafc;border:1px solid var(--border);border-top:none;border-radius:0 0 10px 10px;}
+.map-node{padding:6px 13px;border-radius:20px;font-size:12.5px;font-weight:700;cursor:pointer;border:2px solid;transition:all .15s;white-space:nowrap;}
+.map-node:hover{opacity:.8;transform:translateY(-1px);}
+.map-node.blue{background:var(--primary-light);color:var(--primary);border-color:var(--primary);}
+.map-node.green{background:var(--green-light);color:var(--green);border-color:var(--green);}
+.map-node.purple{background:var(--purple-light);color:var(--purple);border-color:var(--purple);}
+.map-node.orange{background:var(--orange-light);color:var(--orange);border-color:var(--orange);}
+.map-node.teal{background:var(--teal-light);color:var(--teal);border-color:var(--teal);}
+.map-node.rose{background:var(--rose-light);color:var(--rose);border-color:var(--rose);}
+.map-node.gray{background:#f1f5f9;color:#475569;border-color:#94a3b8;}
+.map-tip{background:var(--green-light);border-left:4px solid var(--green);border-radius:0 8px 8px 0;padding:10px 14px;margin-bottom:20px;font-size:13px;}
+</style>
+  <!-- PWA: 앱 설치 설정 -->
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <meta name="theme-color" content="#07111f" />
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="심풀스터디" />
+  <script>if('serviceWorker' in navigator){addEventListener('load',function(){navigator.serviceWorker.register('./sw.js').catch(function(){});});}</script>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div class="subject-label">근대 이전 한국사의 탐구</div>
+    <div class="page-title">
+      최O석 선생님 한국사
+      <span class="badge-unit">붕당 정치</span>
+      <span class="badge-unit" style="background:var(--green);">세도 정치</span>
+      <span class="badge-unit" style="background:var(--purple);">흥선 대원군</span>
+      <span class="badge-unit" style="background:var(--teal);">국제 관계</span>
+      <span class="badge-unit" style="background:var(--orange);">수취·경제</span>
+      <span class="badge-unit" style="background:var(--rose);">신분제</span>
+    </div>
+    <nav class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab(0)"><span class="tab-num">1</span>붕당 정치</button>
+      <button class="tab-btn" onclick="switchTab(1)"><span class="tab-num">2</span>세도 정치</button>
+      <button class="tab-btn" onclick="switchTab(2)"><span class="tab-num">3</span>흥선 대원군</button>
+      <button class="tab-btn" onclick="switchTab(3)"><span class="tab-num">4</span>국제 관계와 대외 교류</button>
+      <button class="tab-btn" onclick="switchTab(4)"><span class="tab-num">5</span>수취 체제와 경제생활</button>
+      <button class="tab-btn" onclick="switchTab(5)"><span class="tab-num">6</span>신분제와 사회 구조</button>
+      <button class="tab-btn" onclick="switchTab(6)"><span class="tab-num">7</span>📋 개념 한눈에 보기</button>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══ TAB 0: 붕당 정치 ═══ -->
+<div class="tab-panel active" id="panel-0">
+<div class="content-wrap">
+  <div class="unit-banner">📌 04. 조선 후기 › 붕당 정치의 전개와 탕평 정치</div>
+
+  <h2 class="section-title" id="a-bibyeonsa">🏛️ 통치 체제의 변화</h2>
+  <p>왜란과 호란을 거치면서 조선의 정치 제도는 크게 변화하였다. 특히 오랜 전란의 영향으로 억진과 왜구의 침입에 대비하는 임시 관청이었던 <strong>비변사</strong>의 기능이 강화되었다.</p>
+  <div class="def-box">
+    <strong>비변사 (備邊司)</strong> — 국정의 모든 업무를 총괄하는 <strong>최고 통치 기구</strong>로 변화. 그 영향으로 의정부와 6조의 행정 기능은 축소되었다.
+  </div>
+  <div class="source-box">
+    <span class="source-label">자료 1 &nbsp;비변사의 위상</span>
+    <blockquote>"오늘에 와서 큰일이건 작은 일이건 모두 비변사에서 처리합니다. 의정부는 이름뿐이고, 6조는 그 할 일을 모두 비변사에 빼앗겼습니다."</blockquote>
+    <cite>— 『효종실록』, 1654. 11.</cite>
+  </div>
+  <div class="factor-grid">
+    <div class="factor-card blue">
+      <h4>훈련도감 설치</h4>
+      <p>임진왜란 중에 설치. 이후 두 차례 호란을 거치면서 기존 5위를 대신하여 <strong>5군영</strong> 중앙군 체제가 완성되었다.</p>
+    </div>
+    <div class="factor-card green">
+      <h4>속오군 편성</h4>
+      <p>지방에서는 <strong>양반부터 노비까지 포함</strong>된 속오군이 편성되어 지방의 방위 체계가 구축되었다.</p>
+    </div>
+  </div>
+  <div class="warning">⚠️ 비변사 기능 강화 → 의정부·6조 기능 <strong>축소</strong> → 왕권 약화의 구조적 원인.</div>
+
+  <h2 class="section-title" id="a-bungdang">🎯 붕당 정치의 전개와 변질</h2>
+  <div class="def-box">
+    <strong>붕당 정치란?</strong> — <strong>선조</strong> 때 외척 정치의 청산 방향과 <strong>이조 전랑의 임명 문제</strong>로 <strong>동인</strong>과 <strong>서인</strong>으로 나뉘면서 본격화. 지방 사족의 의견까지 공론으로 폭넓게 수렴하고 붕당 간 <strong>비판적 견제</strong>가 가능하다는 긍정적 측면이 있었다.
+  </div>
+
+  <div class="source-box">
+    <span class="source-label">자료 2 &nbsp;붕당 정치의 전개와 변질</span>
+    <div class="source-note">❶ 선조 — 동인·서인 분화 → 동인이 남인·북인으로 분열<br>❷ 광해군 — 북인 집권, 인목대비 폐위 → 서인의 인조반정<br>❸ 인조 이후 — 서인 집권, 남인과 함께 국정 운영<br>❹ 현종 — 2차례 예송 논쟁(서인 vs 남인) 대립 심화<br>❺ 숙종 — 잦은 환국으로 붕당 균형 붕괴 → 서인이 노론·소론으로 분열</div>
+    <div class="source-note" style="background:var(--orange-light);margin-top:6px;">상복 있는 기간을 두고 서인과 남인이 벌인 논쟁 = <strong>예송(禮訟)</strong><br>경국을 주도하던 붕당이 급격하게 교체되는 현상 = <strong>환국(換局)</strong></div>
+  </div>
+
+  <h2 class="section-title" id="a-yesong">📜 예송(禮訟)</h2>
+  <p>효종, 효종비의 장례에서 효종의 어머니(계모)인 <strong>자의대비</strong>가 상복을 얼마 동안 입어야 하는지에 대한 논쟁. 단순한 싸움이 아니라 <strong>성리학적 예법</strong>이 가장 중요한 조선에서 왕위 계승 원칙인 <strong>종법(宗法)</strong> 문제를 논하는 것이므로 정치적으로 가장 중대하고 민감한 사안이었다.</p>
+  <table class="cmp-table">
+    <thead><tr><th class="th-primary">구분</th><th class="th-primary">1차 예송 (효종 사망)</th><th class="th-primary">2차 예송 (효종비 사망)</th></tr></thead>
+    <tbody>
+      <tr><td class="td-k">서인의 주장</td><td>1년 상복</td><td>9개월 상복</td></tr>
+      <tr><td class="td-k">남인의 주장</td><td>3년 상복</td><td>1년 상복</td></tr>
+      <tr><td class="td-k">결과</td><td>서인 주도권 획득</td><td>남인 주도권 획득</td></tr>
+    </tbody>
+  </table>
+  <div class="rose-box">
+    특정 붕당이 비변사의 고위 관직과 이조 전랑 등 주요 관직을 차지하면서 <strong>권력의 독점 현상</strong>이 일어났다. 붕당 간 대립으로 왕권이 위협받고 정치적 혼란이 더욱 심해지자 숙종 대에 <strong>탕평책</strong>의 필요성이 대두되었다.
+  </div>
+
+  <h2 class="section-title" id="a-yeongjo">👑 영조의 탕평 정치</h2>
+  <p>숙종이 죽은 후 왕위 계승 문제로 노론과 소론 간의 대립이 더욱 심해졌다. 이후 왕위에 오른 <strong>영조</strong>는 붕당의 대립을 완화하고 세력 균형을 이루고자 <strong>탕평책</strong>을 추진하였다.</p>
+  <div class="factor-grid three">
+    <div class="factor-card blue">
+      <h4>탕평파 육성</h4>
+      <p>붕당에 상관없이 자신의 정책에 동의하는 <strong>탕평파</strong>를 육성하고 이들을 중심으로 국정을 운영하였다.</p>
+    </div>
+    <div class="factor-card green">
+      <h4>서원 정리 &amp; 이조 전랑 약화</h4>
+      <p>붕당의 근거지인 <strong>서원을 대폭 정리</strong>하고 <strong>이조 전랑의 권한을 약화</strong>하였다.</p>
+    </div>
+    <div class="factor-card purple">
+      <h4>민생 안정 개혁</h4>
+      <p><strong>균역법</strong> 시행(군포 2필 → 1필), <strong>신문고 부활</strong>, 가혹한 형벌 금지.</p>
+    </div>
+  </div>
+  <div class="source-box">
+    <span class="source-label">자료 4 &nbsp;영조의 탕평 정치</span>
+    <blockquote>"붕당의 폐단이 요즈음보다 심한 적이 없었다. 처음에는 사문에 소란을 일으키더니, 이제는 한쪽 사람을 모조리 역적으로 몰고 있다. …… 아! 임금과 신하는 부자(父子)와 같으니, 아들이 이를 시기하고 의심한다면 임금의 마음은 편안하겠는가, 불안하겠는가? …… 관리의 임용을 담당한 부서에서는 탕평하게 거두어 쓰도록 하라."</blockquote>
+    <cite>— 『영조실록』, 1725. 1.</cite>
+  </div>
+
+  <h2 class="section-title green" id="a-jeongjo">👑 정조의 탕평 정치</h2>
+  <p><strong>정조</strong>는 외척을 제거하고 노론, 소론, 남인을 고루 관직에 등용하는 탕평책을 <strong>적극적으로</strong> 실시하였다.</p>
+  <div class="factor-grid">
+    <div class="factor-card blue">
+      <h4>규장각 설치</h4>
+      <p>즉위 직후 <strong>규장각</strong>을 설치하여 왕권을 뒷받침하는 <strong>정책 자문 기구</strong>로 삼았다. 서얼 출신들을 규장각 검서관으로 등용하였다.</p>
+    </div>
+    <div class="factor-card green">
+      <h4>초계문신제 &amp; 장용영</h4>
+      <p><strong>초계문신제</strong>(관리를 재교육하는 제도)로 젊은 관리들을 육성하고, 친위 부대 <strong>장용영</strong>을 설치하여 군사적 기반을 강화하였다.</p>
+    </div>
+    <div class="factor-card purple">
+      <h4>수원 화성 건설</h4>
+      <p>수원에 <strong>화성</strong>을 건설하여 자신의 개혁 정치를 완성하고자 하였다.</p>
+    </div>
+  </div>
+  <div class="warning">⚠️ 탕평 정치는 붕당 정치의 폐단을 완전히 없애지는 못하였다. 특히 탕평책을 실시하는 과정에서 정조를 따르는 측근들 사이에서 발생한 <strong>권력 집중 현상</strong>은 정조가 죽은 후 <strong>세도 정치</strong>가 발생하는 원인이 되었다.</div>
+  <table class="cmp-table">
+    <thead><tr><th class="th-primary">구분</th><th class="th-primary">영조의 탕평</th><th class="th-primary">정조의 탕평</th></tr></thead>
+    <tbody>
+      <tr><td class="td-k">방식</td><td>탕평파 육성, 서원 정리, 이조 전랑 권한 약화</td><td>규장각, 초계문신제, 장용영 설치</td></tr>
+      <tr><td class="td-k">등용 범위</td><td>노론 + 소론 중심</td><td>노론, 소론, 남인 고루 등용</td></tr>
+      <tr><td class="td-k">개혁 정치</td><td>균역법, 신문고 부활, 형벌 완화</td><td>화성 건설, 서얼 등용</td></tr>
+      <tr><td class="td-k">한계</td><td>왕권으로 갈등 억제 → 근본 해결 못함</td><td>측근 권력 집중 → 세도 정치의 원인</td></tr>
+    </tbody>
+  </table>
+
+  <div id="quiz-panel-0"></div>
+</div>
+</div>
+
+<!-- ═══ TAB 1: 세도 정치 ═══ -->
+<div class="tab-panel" id="panel-1">
+<div class="content-wrap">
+  <div class="unit-banner">📌 04. 조선 후기 › 세도 정치와 농민 봉기의 발생</div>
+
+  <h2 class="section-title" id="a-sedo">🏚️ 세도 정치의 전개와 그 영향</h2>
+  <div class="def-box">
+    <strong>세도 정치 (勢道政治)</strong> — 정조가 죽고 나이 어린 순조가 즉위하면서 <strong>순조의 장인이었던 김조순</strong>을 중심으로 한 <strong>안동 김씨</strong> 세력이 권력을 장악. 이후 안동 김씨와 <strong>풍양 조씨</strong>를 중심으로 하는 세도 가문이 정치를 주도. 세도 정치는 <strong>순조, 헌종, 철종 3대 60여 년</strong> 동안 이어졌다.
+  </div>
+  <div class="rose-box">
+    세도 가문은 비변사의 주요 관직을 차지하고 중앙 군영의 지휘권을 장악하여 권력을 독점. 세도 가문을 견제할 세력이 없어져 왕권이 약해지면서 정치 기강이 문란해졌다. 그러면서 <strong>매관매직</strong>이나 과거 시험 부정 등의 폐단이 발생하였다.
+  </div>
+
+  <h2 class="section-title orange" id="a-samjeong">💸 삼정의 문란</h2>
+  <p>삼정은 <strong>전정(전세)·군정(군포)·환곡</strong>을 가리키는 것으로 조선 후기 국가의 주요 세금 수입원이었다. 세도 정치 시기에 지방의 수령들이 부정한 방법으로 많은 세금을 수탈하는 등 삼정이 문란해졌다.</p>
+  <table class="cmp-table">
+    <thead><tr><th class="th-orange">구분</th><th class="th-orange">내용</th><th class="th-orange">폐단</th></tr></thead>
+    <tbody>
+      <tr><td class="td-k-orange">전정 (田政)</td><td>토지에 부과하는 세금</td><td>여러 가지 이유를 들어 정해진 것 이상의 세금을 거두었다.</td></tr>
+      <tr><td class="td-k-orange">군정 (軍政)</td><td>군포(군역 대신 내는 포) 징수</td><td>죽은 사람이나 어린아이에게도 군포를 징수하였다. (백골징포·황구첨정)</td></tr>
+      <tr><td class="td-k-orange">환곡 (還穀)</td><td>봄에 빌려주고 가을에 거두는 곡식</td><td>필요하지 않은 사람에게 억지로 곡식을 빌려주고 높은 이자를 거두었다.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="source-box">
+    <span class="source-label">자료 1 &nbsp;조선 후기 사회 문제</span>
+    <span class="source-sub">❶ 세도 정치의 폐단</span>
+    <blockquote>"가을에 한 늙은 아전이 대궐에서 돌아와 처와 자식에게 '요즘 이름 있는 관리들이 모여서 온종일 이야기를 하여도 나랏일에 대한 계획이나 백성을 위한 걱정은 전혀 하지 않는다. 오직 각 고을에서 보내오는 뇌물의 많고 적음과 좋고 나쁨에만 관심을 가지고 어느 고을의 수령이 보낸 물건은 극히 정묘하고, 또 어느 고을의 수령이 보낸 물건은 매우 넉넉하다고 말한다. 이름 있는 관리들이 말하는 것이 이러하다면, 지방에서 거둬들이는 것이 반드시 늘어날 것이다. 나라가 어찌 망하지 않겠는가?'라고 한탄하면서 눈물을 흘려 마지않았다."</blockquote>
+    <cite>— 정약용, 『목민심서』</cite>
+    <span class="source-sub">❷ 삼정의 문란</span>
+    <p style="font-size:12.5px;color:var(--text-sec);margin-top:4px;">전정의 폐단: 여러 가지 이유를 들어 정해진 것 이상의 세금을 거두었다.<br>군정의 폐단: 한 사람이 여러 사람의 군포 부담을 지거나, 죽은 사람이나 어린아이에게도 군포를 징수하였다.<br>환곡의 폐단: 필요하지 않은 사람에게 억지로 곡식을 빌려주고 높은 이자를 거두었다.</p>
+  </div>
+
+  <h2 class="section-title green" id="a-hong">⚡ 홍경래의 난 (1811)</h2>
+  <div class="green-box">
+    <strong>홍경래</strong> — 몰락 양반 출신. <strong>서북 지방에 대한 차별</strong>과 세도 정권의 수탈에 불만을 품고 난을 일으켰다(1811). — 기선, 지식
+  </div>
+  <div class="factor-grid">
+    <div class="factor-card green"><h4>참여 세력</h4><p>농민, 상인, 광산 노동자 등 다양한 계층이 참여.</p></div>
+    <div class="factor-card blue"><h4>전개</h4><p>반란군의 세력은 <strong>청천강 이북</strong>을 장악하였으나 관군에게 약 <strong>5개월</strong> 만에 진압되었다.</p></div>
+    <div class="factor-card orange"><h4>의의</h4><p>세도 정권의 부패와 무능함을 폭로함과 동시에 이후 농민 봉기의 활성화에 큰 영향을 미쳤다.</p></div>
+  </div>
+  <div class="source-box">
+    <span class="source-label">자료 2 &nbsp;홍경래의 난</span>
+    <blockquote>"(홍)서대주는 급히 격문을 띄우노라. …… 그러나 조정에서는 서쪽 땅을 버림이 더러운 흙과 다름없이 하였다. 심지어 권세 있는 가문의 노비들도 서쪽 사람들을 보면 반드시 '평안도 놈'이라 일컫는다. 서쪽 땅에 있는 자로서 어찌 억울하고 원통하지 않겠는가. …… 보건대 지금 나이 어린 임금이 위에 있어서 권세 있는 간신배가 그 세를 날로 떨치고 김조순과 박종경 같은 무리들이 국가의 권력을 갖고 노니 이진 하늘이 재앙을 내려 거울 번개와 지진이 일어나고 재앙 별과 바람과 우박이 없는 해가 없으니 이 때문에 큰 흉년이 거듭 이르고 굶어 부황 든 무리가 길에 늘려 늙은이와 어린이가 구렁에 빠져서 산 사람이 거의 죽음에 다다르게 되었다."</blockquote>
+    <cite>— 『패림』</cite>
+  </div>
+
+  <h2 class="section-title purple" id="a-imsul">✊ 임술 농민 봉기 (1862)</h2>
+  <p>임술년에는 단성과 <strong>진주</strong>에서 탐관오리들의 수탈을 견디지 못한 농민들이 봉기를 일으켰다. 특히 진주 농민들은 경상 우병사 <strong>백낙신</strong>의 수탈을 견디지 못하고 몰락 양반 출신의 <strong>유계춘</strong>을 중심으로 봉기를 일으켰다(1862).</p>
+  <div class="def-box">이후 전국 70여 개 고을로 봉기가 확산(임술 농민 봉기). 당황한 정부는 <strong>삼정이정청(三政釐整廳)</strong>(삼정의 폐단을 해결하려고 만든 임시 관청)을 설치하였지만 근본적인 문제를 해결하지 못하였다.</div>
+  <div class="tip">✅ 계속되는 농민 봉기 속에서 농민들의 사회 참여 의식이 더욱 성장하고 양반 중심의 지배 질서는 흔들리게 되었다.</div>
+  <div class="source-box">
+    <span class="source-label">자료 3 &nbsp;임술 농민 봉기 당시 공주부 농민의 요구 사항</span>
+    <p style="font-size:12.5px;color:var(--text-sec);margin-bottom:6px;">— 송근수, 『용호한록』</p>
+    <ul style="padding-left:20px;font-size:13px;line-height:2.1;">
+      <li>전세는 항상 7냥 5전으로 정하여 거둘 것</li>
+      <li>각종 군포를 농민에게만 부담하게 하지 말고, 각호마다 균등하게 부담시킬 것</li>
+      <li>환곡의 폐단을 없앨 것</li>
+      <li>아전과 군인 장교들이 농민을 침탈하는 것을 금지할 것</li>
+    </ul>
+  </div>
+
+  <div id="quiz-panel-1"></div>
+</div>
+</div>
+
+<!-- ═══ TAB 2: 흥선 대원군 ═══ -->
+<div class="tab-panel" id="panel-2">
+<div class="content-wrap">
+  <div class="unit-banner">📌 04. 조선 후기 › 흥선 대원군의 개혁 정치</div>
+
+  <h2 class="section-title" id="a-hs-bg">⚙️ 흥선 대원군 집권의 배경</h2>
+  <div class="def-box">19세기에 들어와 조선은 세도 정치와 삼정의 문란으로 농민 봉기가 전국적으로 일어나고, 서양 세력의 침략적 접근으로 위기감이 높아졌다. 이러한 가운데 나이 어린 고종이 즉위하자, <strong>흥선 대원군(1863~1873)</strong>이 국정 운영을 주도하며 과감하게 개혁에 나섰다. — 고종 친정</div>
+
+  <h2 class="section-title" id="a-gwongang">🏛️ 왕권 강화 — 통치 체제 정비</h2>
+  <div class="factor-grid">
+    <div class="factor-card blue">
+      <h4>비변사 사실상 폐지</h4>
+      <p><strong>비변사를 사실상 폐지</strong>, 의정부와 삼군부의 기능을 부활하여 각각 <strong>정치</strong>와 <strong>군사</strong> 업무를 나누어 맡게 하였다.</p>
+    </div>
+    <div class="factor-card green">
+      <h4>대전회통 편찬</h4>
+      <p>새로운 법전인 『<strong>대전회통</strong>』을 편찬하여 통치 체제를 재정비하였다.</p>
+    </div>
+    <div class="factor-card purple">
+      <h4>인재 등용</h4>
+      <p>소외되었던 <strong>남인과 북인 계열</strong>을 비롯한 종친 세력을 등용. 안동 김씨 세력의 일부를 몰아냈다.</p>
+    </div>
+  </div>
+
+  <h2 class="section-title" id="a-gyeongbok">🏯 경복궁 중건과 그 문제점</h2>
+  <p>흥선 대원군은 무너진 왕실의 권위를 바로 세우고자 임진왜란 때 불탔던 <strong>경복궁</strong>을 다시 지었다.</p>
+  <div class="factor-grid">
+    <div class="factor-card orange"><h4>원납전 강제 징수</h4><p>경복궁 중건에 필요한 재정을 마련하고자 <strong>원납전</strong>이라는 기부금을 강제로 거두었다.</p></div>
+    <div class="factor-card rose"><h4>당백전 발행</h4><p>고액 화폐인 <strong>당백전</strong>을 발행. 실질 가치는 상평통보의 5~6배에 불과했으나 100배로 통용시키려 하여 물가가 폭등하였다.</p></div>
+    <div class="factor-card blue"><h4>강제 동원</h4><p>양반들의 묘지림을 베고 백성들을 강제로 공사에 동원하여 양반을 비롯한 백성 모두의 불만이 심해졌다.</p></div>
+  </div>
+
+  <div class="source-box">
+    <span class="source-label">자료 1 &nbsp;경복궁 중건</span>
+    <span class="source-sub">❶ 당백전의 발행</span>
+    <p>경복궁 중건으로 인한 재정난을 해결하기 위해 주조된 당백전의 실제 명목 가치는 상평통보의 100배로 통용시킬 계획이었다. 그러나 실질 가치가 5~6배에 거래되어 화폐 유통 질서가 혼란에 빠졌다. 그 결과 화폐 가치가 하락하고 물가가 폭등하는 등 폐단이 발생하였다.</p>
+    <span class="source-sub">❷ 원납전의 징수</span>
+    <p>재정이 메말라 일을 할 수 없게 되자 팔도 부자 명단을 뽑아서 돈을 거둬들였다. 그리하여 파산자가 잇달았다. 이때 거둬들인 돈을 원납전이라 하였는데, 백성들은 입을 비쭉거리면서 이렇게 말하였다. "원납전(願納錢 원하여 내는 돈)이 아니라 원납전(怨納錢 원망하며 내는 돈)이다."</p>
+    <cite>— 황현, 『매천야록』</cite>
+  </div>
+
+  <h2 class="section-title purple" id="a-minsaeng">🌾 민생 안정 정책 — 삼정 개혁</h2>
+  <h3 class="subsection-title">① 양전 사업 — 전정의 문란 개혁</h3>
+  <div class="purple-box"><strong>양전 사업</strong> — 토지의 소유자, 위치, 품질을 조사하여 양안(토지 대장)에 기록하는 사업으로, 소유주가 세금을 피하기 위해 토지 대장에 누락한 땅(은결)을 파악하였다.</div>
+  <h3 class="subsection-title">② 호포제 실시 — 군정의 문란 개혁</h3>
+  <div class="purple-box"><strong>호포제(戶布制)</strong> — <strong>양반에게도 군포를 징수</strong>하여 군정의 문란을 바로잡았다. 기존에는 양반이 군포를 면제받았음. 양반들이 강력히 반발하였다.</div>
+
+  <div class="source-box">
+    <span class="source-label">자료 3 &nbsp;호포제 실시</span>
+    <span class="source-sub">❶ 호포제 실시로 나타난 군포 부담층의 변화(경북 옥천)</span>
+    <!-- 파이차트 구현 -->
+    <div class="chart-wrap">
+      <div class="chart-card">
+        <div class="chart-card-title">호포제 실시 전 (1792) — 총 3,100호</div>
+        <div class="bar-row"><span class="bar-label">납부 양인</span><div class="bar-track"><div class="bar-fill" style="width:49%;background:#2563eb;">49%</div></div><span class="bar-pct">49%</span></div>
+        <div class="bar-row"><span class="bar-label">면제 양반</span><div class="bar-track"><div class="bar-fill" style="width:15%;background:#7c3aed;">15%</div></div><span class="bar-pct">15%</span></div>
+        <div class="bar-row"><span class="bar-label">면제 노비</span><div class="bar-track"><div class="bar-fill" style="width:36%;background:#94a3b8;">36%</div></div><span class="bar-pct">36%</span></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-title">호포제 실시 후 (1872) — 총 3,137호</div>
+        <div class="bar-row"><span class="bar-label">남부 양반·양인</span><div class="bar-track"><div class="bar-fill" style="width:74%;background:#2563eb;">74%</div></div><span class="bar-pct">74%</span></div>
+        <div class="bar-row"><span class="bar-label">면제 관리</span><div class="bar-track"><div class="bar-fill" style="width:19%;background:#7c3aed;">19%</div></div><span class="bar-pct">19%</span></div>
+        <div class="bar-row"><span class="bar-label">면제 노비</span><div class="bar-track"><div class="bar-fill" style="width:7%;background:#94a3b8;">7%</div></div><span class="bar-pct">7%</span></div>
+      </div>
+    </div>
+    <cite>— 「조선 후기 균역제 이정의 추이와 호포법」(1982)</cite>
+    <span class="source-sub">❷ 호포제 실시에 대한 반응</span>
+    <blockquote>"근래에 호포(제)를 한 번 실시하면서 등급이 문란해져 벼슬아치나 선비, 하인들이 똑같이 취급되고 상하의 구별이 없어졌으니, 한탄스러움을 이길 수 없습니다. 단지 황구(黃口)나 백골(白骨)만을 불쌍히 여겨서 귀천에 관계없이 고르게 배분하려는 뜻에서 나온 것에 지나지 않습니다. 명분이 한 번 무너지면 나라는 앞으로 어떻게 다스리겠습니까? 부디 호포를 혁파하여 명분을 바로잡으며 군액(軍額)을 바르게 하여 뜻하지 않는 사변에 대처하소서."</blockquote>
+    <cite>— 『고종실록』, 1873. 10.</cite>
+  </div>
+
+  <h3 class="subsection-title">③ 사창제 실시 — 환곡의 문란 개혁</h3>
+  <div class="purple-box"><strong>사창제(社倉制)</strong> — 환곡 운영을 민간에 맡겨 향리의 중간 착복을 막고자 하였다. 이후 관리들의 부정이 줄고 백성들의 세금 부담도 다소 가벼워졌다.</div>
+
+  <h2 class="section-title orange" id="a-seowon">🏫 서원 철폐</h2>
+  <div class="orange-box">흥선 대원군은 서원의 면세 규정을 없애고 전국의 서원 중 <strong>47곳만을 남기고</strong> 나머지는 모두 <strong>철폐</strong>하였다.</div>
+  <div class="source-box">
+    <span class="source-label">자료 &nbsp;서원 철폐</span>
+    <blockquote>"대원군이 명령을 내려서 나라 안 서원을 모두 허물고 서원 유생들을 쫓아 버리도록 하였다. …… 대원군이 크게 화를 내며 말하였다. '진실로 백성에게 해 되는 것이 있으면 비록 공자가 다시 살아난다 하더라도 나는 용서하지 않겠다. 하물며 서원은 우리나라 선대의 유학자를 제사하는 곳인데 지금은 도둑의 소굴이 되어 있어서이랴.' 드디어 형조와 한성부의 나졸들을 풀어서 대궐 문 앞에서 호소하려는 선비를 강 건너로 몰아내 버렸다."</blockquote>
+    <cite>— 박제형, 『근세조선정감』</cite>
+  </div>
+  <div class="tip">✅ 민생 안정과 국가 재정 확충 등 다양한 효과. 그러나 지방 유생들과 양반들이 강력하게 반발하였고, 이는 흥선 대원군이 권력에서 물러나게 되는 배경이 되기도 하였다.</div>
+
+  <h2 class="section-title" id="a-hs-sum">📊 흥선 대원군 개혁 정리</h2>
+  <table class="cmp-table">
+    <thead><tr><th class="th-primary">목표</th><th class="th-primary">정책</th><th class="th-primary">내용</th><th class="th-primary">결과/부작용</th></tr></thead>
+    <tbody>
+      <tr><td class="td-k">왕권 강화</td><td>비변사 폐지</td><td>의정부(정치)+삼군부(군사)로 분리</td><td>세도 가문 약화</td></tr>
+      <tr><td class="td-k">왕권 강화</td><td>경복궁 중건</td><td>왕실 권위 회복</td><td>원납전·당백전·강제 동원 → 민심 이반</td></tr>
+      <tr><td class="td-k">왕권 강화</td><td>대전회통 편찬</td><td>통치 체제 재정비</td><td>법 질서 회복</td></tr>
+      <tr><td class="td-k">전정 개혁</td><td>양전 사업</td><td>은결 파악</td><td>세금 형평성 개선</td></tr>
+      <tr><td class="td-k">군정 개혁</td><td>호포제</td><td>양반에게도 군포 징수</td><td>양반 반발</td></tr>
+      <tr><td class="td-k">환곡 개혁</td><td>사창제</td><td>환곡 운영 민간 위탁</td><td>착복 감소</td></tr>
+      <tr><td class="td-k">민생·재정</td><td>서원 철폐</td><td>47곳만 유지, 나머지 모두 철폐</td><td>지방 유생·양반 반발 → 정치적 부담</td></tr>
+    </tbody>
+  </table>
+
+  <div id="quiz-panel-2"></div>
+</div>
+</div>
+
+<!-- ═══ TAB 3: 국제 관계와 대외 교류 ═══ -->
+<div class="tab-panel" id="panel-3">
+<div class="content-wrap">
+  <div class="unit-banner">📌 01. 국제 관계와 대외 교류</div>
+
+  <!-- 1. 고대 -->
+  <h2 class="section-title" id="a-int-godae">1 &nbsp;고대의 국제 관계와 대외 교류</h2>
+
+  <h3 class="subsection-title">고대 동아시아의 국제 질서</h3>
+  <div class="def-box">
+    <strong>조공·책봉 관계</strong> — 중국 한대 이후 동아시아 국제 질서의 기본 틀. 실질적 종속이 아닌 <strong>의례적</strong>(형식·격식만 갖춘) 외교 관계. 각국은 자국의 경제적·문화적 이익을 위해 참여하였다.
+  </div>
+  <div class="factor-grid three">
+    <div class="factor-card blue">
+      <h4>고구려</h4>
+      <p>주로 <strong>북조(북위)</strong>와 교류. 자국 중심의 <strong>독자적 천하관</strong>을 가지고 신라·동부여 등을 속국처럼 여겼다.</p>
+    </div>
+    <div class="factor-card green">
+      <h4>백제</h4>
+      <p>주로 <strong>남조</strong>와 교류.</p>
+    </div>
+    <div class="factor-card purple">
+      <h4>7세기 이후</h4>
+      <p>수·당이 중국 중심 질서 강화 → 고구려 침략. 신라가 <strong>당과 연합</strong> → 백제·고구려 멸망 → 삼국 통일(676).</p>
+    </div>
+  </div>
+
+  <h3 class="subsection-title green">고대 국가의 대외 교류</h3>
+  <div class="factor-grid">
+    <div class="factor-card green">
+      <h4>삼국 → 일본</h4>
+      <p>한자·유교·불교·율령 등 문물 전파 → 일본 <strong>고대 아스카 문화</strong> 형성에 기여.</p>
+    </div>
+    <div class="factor-card blue">
+      <h4>통일 신라 — 대외 교류</h4>
+      <p>산둥반도에 <strong>신라방</strong> 형성. 당·일본 사이 <strong>중계 무역</strong>. <strong>장보고</strong>가 완도에 <strong>청해진</strong> 설치(9C) → 해상 무역 장악.</p>
+    </div>
+  </div>
+  <div class="green-box"><strong>동아시아 문화권</strong> — 동아시아 각국이 <strong>한자·유교·불교</strong>를 공유하며 형성된 문화권.</div>
+
+  <div class="source-box">
+    <span class="source-label">자료 1 &nbsp;고구려의 국제 관계</span>
+    <span class="source-sub">❶ 고구려의 천하관</span>
+    <blockquote>"(태왕)의 은혜는 하늘에 미쳤고 위임은 온 세상에 떨치었다. 백잔(백제)과 신라는 옛날에 우리의 속민이기에 조공을 바쳤다."</blockquote>
+    <cite>— 광개토 대왕릉비</cite>
+    <span class="source-sub">❷ 고구려의 다원 외교</span>
+    <blockquote>"481년 고구려가 사신을 보내 (남제에) 공물을 바쳤다. 북위에도 사신을 보냈다. 그러나 (고구려의) 세력이 강성하여 통제받지 않았다."</blockquote>
+    <cite>— 소자현, 『남제서』</cite>
+    <div class="source-note">❸ 동아시아의 여러 나라는 중국의 왕조와 조공·책봉 관계를 맺으면서도, 내부적으로는 자국 중심의 천하관을 지니고 있었다.</div>
+  </div>
+
+  <!-- 2. 고려 -->
+  <h2 class="section-title orange" id="a-int-goryeo">2 &nbsp;고려의 국제 관계와 대외 교류</h2>
+
+  <h3 class="subsection-title">고려 전기 — 다원적 외교</h3>
+  <p>고려는 분열된 중국을 통일한 <strong>송</strong>과 친선 관계를 유지하면서도, 북방의 거란·여진과도 세력 균형을 추구하는 <strong>다원적 외교</strong>를 펼쳤다.</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot rose">①</div>
+      <div class="tl-content">
+        <span class="tl-tag rose">1차 침입 993</span>
+        <div class="tl-title">서희의 외교 담판 → 강동 6주 획득</div>
+        <div class="tl-body"><strong>서희</strong>가 거란과 외교 담판을 벌여 <strong>강동 6주</strong>를 획득하였다.</div>
+      </div>
+    </div>
+    <div class="tl-line"></div>
+    <div class="tl-item">
+      <div class="tl-dot orange">②</div>
+      <div class="tl-content">
+        <span class="tl-tag orange">2차 침입 1010</span>
+        <div class="tl-title">강화 교섭으로 격퇴</div>
+        <div class="tl-body">고려의 강화 요청을 받아들여 거란군이 물러났다.</div>
+      </div>
+    </div>
+    <div class="tl-line"></div>
+    <div class="tl-item">
+      <div class="tl-dot purple">③</div>
+      <div class="tl-content">
+        <span class="tl-tag purple">3차 침입 1019</span>
+        <div class="tl-title">강감찬의 귀주 대첩 → 고려·송·요 세력 균형</div>
+        <div class="tl-body"><strong>강감찬</strong>이 이끄는 고려군이 귀주에서 거란군을 크게 물리쳤다(귀주 대첩). 이후 <strong>고려·송·거란(요) 삼국 사이에 세력 균형</strong>이 이루어져 평화가 유지되었다.</div>
+      </div>
+    </div>
+    <div class="tl-line"></div>
+    <div class="tl-item">
+      <div class="tl-dot green">④</div>
+      <div class="tl-content">
+        <span class="tl-tag green">12세기 초 — 여진</span>
+        <div class="tl-title">별무반 → 동북 9성 → 금의 군신 관계 요구 수용</div>
+        <div class="tl-body">거란 쇠퇴 후 여진이 성장. <strong>별무반</strong>(신기·신보·항마군)을 조직해 여진을 정벌하고 <strong>동북 9성</strong>을 설치하였다. 이후 여진이 <strong>금</strong>을 세우고(1115) 요·송을 격파 → 고려에 <strong>군신 관계</strong> 요구 → 고려 수용.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="source-box">
+    <span class="source-label">자료 1 &nbsp;다원적 국제 관계</span>
+    <span class="source-sub">❶ 10~12세기 동아시아 정세</span>
+    <div class="source-note">10~12세기에는 한 나라가 국제 관계를 주도하는 것이 아니라, 여러 나라가 <strong>세력 균형</strong>을 이루고 있었다. 고려는 다원적 국제 질서를 바탕으로 송·거란(요)·여진(금) 등과 유연한 관계를 맺었다.<br><br>
+    거란(요) 916~1125 — 여진(금) 1115~1234 — 고려 918~1392 — 북송 960~1127 — 남송 1127~1279 — 일본</div>
+    <span class="source-sub">❷ 고려의 실리 외교</span>
+    <blockquote>"송이 거란을 공격하여 연주, 계주 지방을 다시 차지하려 하였다. 그런데 송은 고려가 거란에게 자주 침략을 받고 있어 (도움을 요청하기 위해) 감찰어사 한화를 고려에 파견하였다. …… (고려) 성종이 송의 조서를 받고도 시간을 끌면서 (군사를) 출동하지 않으니, 한화가 고려를 위협 또는 회유하였다. (고려) 성종이 군대를 출동하여 서쪽 지역에서 만날 것을 허락하자, 한화가 결국 돌아갔다."</blockquote>
+    <cite>— 『고려사』</cite>
+    <div class="source-note">❶ 송이 고려에게 거란 협공을 요구하자 고려 성종은 마지못해 군대를 출동한다고 약속하였지만, 실제로는 군대를 보내지 않았다. 이후에도 송은 고려에 금에 대한 협공을 또다시 제의하였다. 이는 송이 고려와 연합하여 금을 제압하고자 금과의 분쟁에 고려의 개입을 요구한 것이다. 그러나 고려는 이미 금에 대한 사대를 결정하였기 때문에 송의 요청을 완강하게 거절하였다.</div>
+  </div>
+
+  <h3 class="subsection-title orange">몽골 침략과 원 간섭기</h3>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot orange">①</div>
+      <div class="tl-content">
+        <span class="tl-tag orange">1231 — 몽골 침략</span>
+        <div class="tl-title">강화도 천도 → 개경 환도(1270)</div>
+        <div class="tl-body">몽골 사신 피살을 계기로 침략. 고려 정부는 강화도로 천도하여 항전하였으나, 무신 정권 붕괴 후 강화를 맺고 개경으로 환도하였다(1270).</div>
+      </div>
+    </div>
+    <div class="tl-line"></div>
+    <div class="tl-item">
+      <div class="tl-dot purple">②</div>
+      <div class="tl-content">
+        <span class="tl-tag purple">원 간섭기</span>
+        <div class="tl-title">원의 정치 간섭 + 몽골풍·고려양</div>
+        <div class="tl-body">원은 고려 국왕 즉위에 직접 관여하는 등 <strong>정치적 간섭</strong>. 고려에 <strong>몽골풍</strong>(복장·음식·언어) 유행, 원에는 <strong>고려양</strong>(의복·음식) 전파.</div>
+      </div>
+    </div>
+    <div class="tl-line"></div>
+    <div class="tl-item">
+      <div class="tl-dot green">③</div>
+      <div class="tl-content">
+        <span class="tl-tag green">공민왕 — 원·명 교체기</span>
+        <div class="tl-title">반원 정책 → 위화도 회군 → 조선 건국</div>
+        <div class="tl-body"><strong>공민왕</strong>이 명과 외교 + 반원 정책 추진. 명이 철령위 설치 통보 → <strong>우왕·최영</strong>의 요동 정벌 추진. <strong>이성계</strong>의 위화도 회군으로 정벌 중단 → 명과 관계 회복 → 조선 건국.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="subsection-title green">개방적 대외 교류</h3>
+  <div class="factor-grid">
+    <div class="factor-card blue">
+      <h4>고려 전기 (송)</h4>
+      <p>도자기·차 문화·의학 서적·약재 수입. 나전 칠기·화문석·자기 수출.</p>
+    </div>
+    <div class="factor-card orange">
+      <h4>고려 후기 (원·아라비아)</h4>
+      <p>원의 영향으로 화려한 장식의 불상 제작. 아라비아 상인들도 고려 방문 → '고려(Goryeo)'가 서방에 알려짐 → 영어 <strong>Korea</strong>의 어원.</p>
+    </div>
+  </div>
+
+  <div class="source-box">
+    <span class="source-label">자료 2 &nbsp;개방적인 대외 교류</span>
+    <span class="source-sub">❶ 고려 전기의 대외 교류</span>
+    <div class="source-note">고려는 개방적인 대외 교류를 펼쳤다. 거란, 여진, 몽골 계통의 외국인이 고려에 들어왔으며, 이들이 고려 사회에 정착하면서 고려의 문화도 다채로워졌다.<br>
+    • <strong>고려 전기</strong>: 송과 교류하여 도자기, 차 문화 등을 받아들였다. 또한 송의 의학을 도입하기 위해 노력하여 서적뿐만 아니라 약재 등도 들여왔다.<br>
+    • <strong>고려 후기</strong>: 원의 영향으로 화려한 장식을 한 불상이 제작되기도 하였다.</div>
+    <span class="source-sub">❷ 고려 시대의 대외 무역</span>
+    <div class="source-note">수출품: 나전 칠기, 화문석, 서적, 자기 등<br>수입품: 비단, 약재, 서적, 차 등<br>아라비아 상인들이 고려를 방문 → '고려(Goryeo)'라는 이름이 서방에 알려짐 → 영어 Korea의 어원</div>
+  </div>
+
+  <!-- 3. 조선 -->
+  <h2 class="section-title purple" id="a-int-joseon">3 &nbsp;조선의 국제 관계와 대외 교류</h2>
+
+  <h3 class="subsection-title">조선 전기 — 사대교린</h3>
+  <div class="def-box"><strong>사대교린(事大交隣)</strong> — 조선 외교의 기본 원칙. 명(청)에 대해서는 <strong>사대</strong>(조공·책봉), 여진·일본 등 주변국에 대해서는 <strong>교린</strong>(회유책+강경책 병행).</div>
+  <div class="factor-grid">
+    <div class="factor-card blue">
+      <h4>명에 대한 사대</h4>
+      <p>건국 초 갈등 후 태종 이후 친선 회복. 사절 파견·조공·답례품 교환. 중국 문물 수용으로 경제적·문화적 실리 추구.</p>
+    </div>
+    <div class="factor-card green">
+      <h4>여진 — 4군 6진</h4>
+      <p>회유(귀순 장려·무역소 설치)와 강경(토벌) 병행. 세종 때 <strong>4군 6진</strong> 개척 → 압록강·두만강까지 영토 확장.</p>
+    </div>
+    <div class="factor-card orange">
+      <h4>일본 — 3포 개방</h4>
+      <p>세종 때 왜구 근거지 <strong>쓰시마섬 토벌</strong>. 이후 일본의 교역 요청 → <strong>3포(제포·염포·부산포)</strong> 개방. 류큐·시암·자와 등 동남아와도 교류.</p>
+    </div>
+  </div>
+
+  <div class="source-box">
+    <span class="source-label">자료 1 &nbsp;조선 전기의 국제 관계와 대외 교류</span>
+    <span class="source-sub">❶ 사대 외교</span>
+    <blockquote>"만일 우리나라가 조금이라도 사대의 예를 잃으면, 황제는 반드시 군사를 일으켜 죄를 물을 것이다. 나는 한편으로 명을 섬기면서, 다른 한편으로는 성을 튼튼히 하고 군량을 저축하는 것을 급선무로 여긴다."</blockquote>
+    <cite>— 『태종실록』, 1407. 4.</cite>
+    <span class="source-sub">❷ 교린 외교</span>
+    <blockquote>"경성·경원 지방에 여진족이 출입하는 것을 금하지 아니하면 때 지어 물러들 우려가 있고, 일절 끊고 금하면 …… 변경에 상사가 생길까 합니다. 원하건대 두 고을에 무역소를 설치하여 저들로 하여금 와서 물물 교역을 하게 하소서."</blockquote>
+    <cite>— 『태종실록』, 1406. 5.</cite>
+  </div>
+
+  <h3 class="subsection-title purple">양 난 이후 — 세계관의 변화</h3>
+  <div class="factor-grid">
+    <div class="factor-card blue">
+      <h4>일본 — 통신사</h4>
+      <p>임진왜란 이후 국교 단절. 에도 막부의 요청으로 <strong>통신사</strong> 파견 재개 → 외교 + 양국 문물 교류에 기여.</p>
+    </div>
+    <div class="factor-card green">
+      <h4>청 — 북벌·북학·조선 중화주의</h4>
+      <p>병자호란 이후 청과 사대 관계 유지. 내부적으로 <strong>북벌</strong> 운동. 조선이 중화 정통을 계승했다는 <strong>조선 중화주의</strong> 등장. 18세기에는 청 문물 수용론인 <strong>북학론</strong> 제기.</p>
+    </div>
+    <div class="factor-card teal">
+      <h4>서양 문물 — 연행사</h4>
+      <p>청에 파견한 <strong>연행사</strong>가 서양 문물(세계 지도·화포·천리경·자명종) 전래. 조선인의 대외 인식 변화.</p>
+    </div>
+  </div>
+
+  <div class="source-box">
+    <span class="source-label">자료 2 &nbsp;조선 중화주의</span>
+    <blockquote>"명 왕통이 끊어져 버렸는데도 대보단과 만동묘가 있었고, 먼 시골의 평민들이라도 벌써 망해 버린 명을 끝내 존중하여 연호를 기록할 때는 반드시 '숭정 기원 후 제 몇 해'라고 썼으니 …… 충성이 이렇게 간절함을 보지 못하였다."</blockquote>
+    <cite>— 이규경, 『오주연문장전산고』</cite>
+    <blockquote style="margin-top:10px;">"우리나라는 본디 예의의 나라로 소문이 나서 천하가 소중화라 일컫고 있으며, 열성들이 서로 계승하면서 한마음으로 사대하기를 정성스럽고 부지런히 하였습니다."</blockquote>
+    <cite>— 『인조실록』, 1636. 2.</cite>
+    <div class="source-note">❸ 조선은 북벌을 추진하기도 하였지만, 청의 압도적인 국력 앞에 청과의 사대 관계를 유지하였다. 그러나 한편으로는 청을 중화로 인식하지 않고 조선이 중화의 정통을 이어받은 '소중화'라고 인식하였다.</div>
+  </div>
+  <div class="source-box">
+    <span class="source-label">자료 3 &nbsp;조선 후기 세계관의 변화</span>
+    <span class="source-sub">❶ 서양 문물의 도입</span>
+    <div class="source-note">「곤여만국전도」(북원, 경기 남양주 봉선사) — 선교사인 마테오 리치가 만든 세계 지도로, 조선에는 1603년에 도입되었다. / 천리경과 자명종(숭실대학교 한국기독교박물관)</div>
+    <span class="source-sub">❷ 홍대용의 세계관</span>
+    <blockquote>"중국인은 중국을 중심으로 삼고 서양을 변두리로 삼으며, 서양인은 서양을 중심으로 삼고 중국을 변두리로 삼는다. 그러나 실제로는 하늘을 이고 땅을 밟는 사람은 땅에 따라서 모두 그러한 것이니, 중심도 변두리도 없이 모두가 중심이다."</blockquote>
+    <cite>— 홍대용, 『의산문답』</cite>
+  </div>
+
+  <h2 class="section-title teal" id="a-int-sum">시기별 국제 관계 비교</h2>
+  <table class="cmp-table">
+    <thead><tr><th class="th-teal">시기</th><th class="th-teal">국제 질서</th><th class="th-teal">핵심 키워드</th></tr></thead>
+    <tbody>
+      <tr><td class="td-k">고대</td><td>조공·책봉 (의례적)</td><td>고구려 독자적 천하관 / 삼국→일본 문물 전파 / 아스카 문화 / 동아시아 문화권 / 청해진·장보고</td></tr>
+      <tr><td class="td-k">고려</td><td>다원적 외교 (세력 균형)</td><td>서희 강동 6주 / 강감찬 귀주 대첩 / 별무반·동북 9성 / 몽골 침략·강화 천도 / 몽골풍·고려양 / 위화도 회군</td></tr>
+      <tr><td class="td-k">조선 전기</td><td>사대교린</td><td>명 사대 / 여진 4군 6진 / 쓰시마 토벌·3포 개방</td></tr>
+      <tr><td class="td-k">조선 후기</td><td>사대 유지 + 세계관 변화</td><td>통신사 / 북벌·조선 중화주의·북학론 / 연행사·서양 문물</td></tr>
+    </tbody>
+  </table>
+
+</div>
+</div>
+<!-- ═══ TAB 4: 수취 체제와 경제생활 ═══ -->
+<div class="tab-panel" id="panel-4">
+<div class="content-wrap">
+  <div class="unit-banner">📌 02. 수취 체제와 경제생활</div>
+
+  <!-- 1. 고대 -->
+  <h2 class="section-title" id="a-ec-godae">1 &nbsp;고대의 수취 체제와 경제생활</h2>
+
+  <h3 class="subsection-title">삼국의 수취 체제</h3>
+  <p>4세기 이후 삼국은 중앙 집권 체제를 정비하며 농민들에게 <strong>조세·공물·역</strong>을 부과하였다. 철제 농기구와 우경 보급으로 농업 생산력이 증대되면서 가족 단위 농업 생산이 가능해지고 토지 사유화가 진전되었다.</p>
+  <table class="cmp-table">
+    <thead><tr><th class="th-primary">종류</th><th class="th-primary">부과 단위</th><th class="th-primary">내용</th></tr></thead>
+    <tbody>
+      <tr><td class="td-k">조세</td><td>토지</td><td>곡물 부과 (가호 단위로 곡물·삼베·비단)</td></tr>
+      <tr><td class="td-k">공물</td><td>촌락·행정 단위</td><td>소금·해산물·광물·과실 등 특산물</td></tr>
+      <tr><td class="td-k">역</td><td>15세 이상 성인 남자</td><td>요역(왕궁·성곽 노동력) + 군역 (신라: 3년)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="source-box">
+    <span class="source-label">자료 1 &nbsp;삼국의 농업 생산 장려</span>
+    <ul style="padding-left:20px;font-size:13px;line-height:2.1;margin-bottom:8px;">
+      <li>(고구려) 평원왕 25년 2월에 명령을 내려 급하지 않은 일을 줄이게 하고, 관리를 군·읍으로 내려보내 농사와 누에치기를 장려하였다.</li>
+      <li>(백제) 구수왕 9년 2월에 담당 관청에 명령하여 제방을 고쳐 쌓게 하였다. 3월에 명령을 내려 농사를 권장하였다.</li>
+      <li>(신라) 지증왕 3년 2월에 주주와 군주에게 각각 명령하여 농사를 권장케 하고, 처음으로 소를 부려 논밭갈이를 하였다.</li>
+    </ul>
+    <cite>— 『삼국사기』</cite>
+    <div class="source-note">❶ 삼국은 서로 치열한 경쟁을 하면서도 농민 생활의 안정을 위해 농업 생산력을 높이려 하였다. 특히 철제 농기구와 소를 이용한 우경을 장려하였는데, 이를 통해 황무지 개간을 촉진하고 땅을 깊이 갈아 수확량을 늘릴 수 있었다. 철제 농기구 보급과 우경으로 가족 단위의 농업 생산이 가능해지면서 토지 사유화가 진전되고 계층 분화가 이루어졌다.</div>
+  </div>
+
+  <div class="source-box">
+    <span class="source-label">자료 2 &nbsp;고구려와 백제의 수취 제도</span>
+    <span class="source-sub">❶ 고구려</span>
+    <blockquote>"인세는 베 5필, 곡물 5석이다. …… 조(租)는 (상)호는 1석, 차호는 7두, 하호는 5두를 낸다."</blockquote>
+    <cite>— 『수서』</cite>
+    <span class="source-sub">❷ 백제</span>
+    <blockquote>"부세는 베와 비단, 비단실, 베실 및 쌀을 내는데, 양은 풍흉에 따라 차등을 두어 징수한다."</blockquote>
+    <cite>— 『주서』</cite>
+    <blockquote style="margin-top:8px;">"진지왕 13년 7월에 동부와 북부의 2부 사람으로서 15세 이상을 징발하여 사구성을 쌓았다."</blockquote>
+    <cite>— 『삼국사기』</cite>
+    <div class="source-note">❹ 고구려와 백제에서 개별 가호를 대상으로 조세를 부과하였음을 짐작할 수 있다.</div>
+  </div>
+
+  <h3 class="subsection-title green">통일 신라 — 신라촌락문서 &amp; 녹읍·관료전</h3>
+  <div class="factor-grid">
+    <div class="factor-card blue">
+      <h4>신라촌락문서</h4>
+      <p>세금 징수 목적으로 작성. 3년마다 촌락의 인구·토지 면적·가축·수목 수를 기록. 가호를 <strong>9등급</strong>으로 나누어 차등 부과. 15세 이상 60세 미만 남자에게 요역·군역 의무.</p>
+    </div>
+    <div class="factor-card green">
+      <h4>녹읍 → 관료전</h4>
+      <p>삼국: 관리에게 <strong>녹읍</strong>(일정 지역 조세 징수권+노동력 동원권) 지급.<br><strong>신문왕</strong>이 녹읍을 폐지하고 <strong>관료전</strong>(국공유 토지)과 <strong>녹봉</strong>(곡물)으로 대체 → 국가 농민 지배력 강화.</p>
+    </div>
+  </div>
+
+  <div class="source-box">
+    <span class="source-label">자료 &nbsp;신라촌락문서 — 시해점촌에 관한 기록</span>
+    <div class="chart-wrap" style="margin-top:8px;">
+      <div class="chart-card" style="min-width:160px;">
+        <div class="chart-card-title">토지 현황</div>
+        <div style="font-size:12.5px;line-height:1.9;">논 102결 (농민 소유 94결, 국공유지 8결)<br>밭 62결 (농민 소유 62결)</div>
+      </div>
+      <div class="chart-card" style="min-width:160px;">
+        <div class="chart-card-title">인구 현황</div>
+        <div style="font-size:12.5px;line-height:1.9;">147명 (노비 포함), 남녀를 연령별로 6등급으로 구분하여 기록<br>* 정(丁) 42명, 장녀(丁女) 29명(노비 5명)</div>
+      </div>
+      <div class="chart-card" style="min-width:160px;">
+        <div class="chart-card-title">가축·수목</div>
+        <div style="font-size:12.5px;line-height:1.9;">말 25마리 / 소 22마리<br>뽕나무 1,004그루<br>잣나무 120그루<br>가래나무 112그루</div>
+      </div>
+    </div>
+    <p style="font-size:12.5px;color:var(--text-sec);margin-top:6px;">신라촌락문서(일본 나라 보존) — 통일 신라의 서원경(현 충북 청주)에 속한 1개 촌을 비롯한 4개 촌락의 경제생활을 기록한 문서.</p>
+  </div>
+
+  <h3 class="subsection-title purple">귀족과 농민의 경제생활 (고대)</h3>
+  <div class="factor-grid">
+    <div class="factor-card purple">
+      <h4>귀족</h4>
+      <p>녹읍·식읍 수취 + 조상 물림 대규모 노비·토지 소유. <strong>전장(田莊)</strong> 경영, <strong>고리대</strong>로 농민 토지 잠식. 통일 신라 귀족은 <strong>금입택</strong> 거주, <strong>공방</strong>에서 사치품 제조·무역.</p>
+    </div>
+    <div class="factor-card green">
+      <h4>농민</h4>
+      <p>소규모 토지 소유, 조세·공물·역 납부. 통일 신라에서 <strong>정전</strong> 지급 받음. 9세기 이후 잦은 재해·정변으로 유랑민·도적이 되는 경우 증가.</p>
+    </div>
+  </div>
+
+  <div class="source-box">
+    <span class="source-label">자료 4 &nbsp;귀족의 생활</span>
+    <blockquote>"재상가에는 항상 녹(祿)이 끊이지 않았고, 부리는 사람이 3천 명이며, 무기와 소, 말, 돼지도 그 수와 비슷하였다. 가축을 섬의 산에서 방목하였다가 필요한 때에 활을 쏘아 잡았다."</blockquote>
+    <cite>— 『신당서』</cite>
+    <blockquote style="margin-top:8px;">"서울(금성)에서 해내(海內)에 이르기까지 기와집이 이어졌고, 풍악과 노래 소리가 길에 끊이지 않았다."</blockquote>
+    <cite>— 『삼국유사』</cite>
+  </div>
+
+  <!-- 2. 고려 -->
+  <h2 class="section-title orange" id="a-ec-goryeo">2 &nbsp;고려의 수취 체제와 경제생활</h2>
+
+  <h3 class="subsection-title">수취 제도의 운영</h3>
+  <p>고려는 <strong>양안</strong>(토지 대장)과 <strong>호적</strong>을 작성하여 조세·공물·역을 부과하였다.</p>
+  <div class="factor-grid three">
+    <div class="factor-card blue">
+      <h4>조세</h4>
+      <p>토지를 논·밭으로 구분, 비옥도에 따라 <strong>3등급</strong> 부과. 수확량의 <strong>10분의 1</strong>. 조창에 보관 후 <strong>조운</strong>으로 개경 운반.</p>
+    </div>
+    <div class="factor-card green">
+      <h4>공물</h4>
+      <p>가호마다 지역 특산물 징수. 베·옷감으로 계산하거나 특정 물품 직접 생산 동원. 소금·자기·금은철은 소(所)에서 납부.</p>
+    </div>
+    <div class="factor-card purple">
+      <h4>역</h4>
+      <p><strong>16~59세</strong> 성인 남자. 토목 공사 동원하는 <strong>요역</strong> + 군사 징발하는 <strong>군역</strong>으로 구성.</p>
+    </div>
+  </div>
+
+  <div class="source-box">
+    <span class="source-label">자료 1 &nbsp;고려의 수취 제도</span>
+    <span class="source-sub">❶ 조세의 기준</span>
+    <blockquote>"태조께서 왕업을 일으켜 즉위하신 지 35일 만에 여러 신하들을 맞이하여 보고 탄식하며 말씀하시기를, '근래에 무자비하게 거두어 …… 민이 삶을 이어갈 수 없으니 …… 지금부터는 마땅히 10분의 1을 거두는 제도를 써서 ……'라고 하시고, 드디어 민간의 3년 동안의 조를 면제하셨습니다."</blockquote>
+    <cite>— 『고려사』</cite>
+    <span class="source-sub">❷ 국역의 기준</span>
+    <blockquote>"나라의 제도에 백성은 나이 16세가 되면 정(丁)이 되어 국역(國役)에 복무하고, 60세가 되면 역에서 면제된다. 주군은 해마다 호구를 헤아려 백성을 호적에 올려 호부에 바친다. 무릇 군사 징발과 역의 부과는 호적에 의거하여 뽑아 정한다."</blockquote>
+    <cite>— 『고려사』</cite>
+  </div>
+
+  <h3 class="subsection-title orange">전시과의 시행과 변화</h3>
+  <div class="def-box">
+    <strong>전시과(田柴科)</strong> — 문무 관료·향리·군인 등에게 녹봉 외에 토지 지급. <strong>전지</strong>(곡물 수취권)와 <strong>시지</strong>(땔감 수취권)로 구분. 관직 퇴직·사망 시 반납 원칙. 5품 이상은 자손에게 세습 가능한 <strong>공음전</strong> 별도 지급.
+  </div>
+  <div class="factor-grid three">
+    <div class="factor-card blue">
+      <h4>시정 전시과 (976, 경종)</h4>
+      <p>인품+관품 기준으로 최초 시행.</p>
+    </div>
+    <div class="factor-card green">
+      <h4>개정 전시과 (998, 목종)</h4>
+      <p>18과로 정비. 관품 기준으로 개편.</p>
+    </div>
+    <div class="factor-card purple">
+      <h4>경정 전시과 (1076, 문종)</h4>
+      <p>지급 대상을 <strong>현직 관리</strong>로 제한.</p>
+    </div>
+  </div>
+
+  <div class="source-box">
+    <span class="source-label">자료 2 &nbsp;전시과 제도 — 전시과의 토지 지급 액수 변화</span>
+    <table class="cmp-table" style="font-size:12px;margin-top:6px;">
+      <thead><tr><th class="th-primary">등급</th><th class="th-primary">시정 전시과(976)</th><th class="th-primary">개정 전시과(998)</th><th class="th-primary">경정 전시과(1076)</th></tr></thead>
+      <tbody>
+        <tr><td class="td-k">1등급</td><td>전지+시지 약 200결 이상</td><td>전지 100+시지 70</td><td>전지 100+시지 50</td></tr>
+        <tr><td class="td-k">4등급</td><td>약 150결</td><td>전지 90+시지 60</td><td>전지 90+시지 40</td></tr>
+        <tr><td class="td-k">10등급</td><td>약 100결</td><td>전지 60+시지 30</td><td>전지 60+시지 15</td></tr>
+        <tr><td class="td-k">16등급</td><td>약 50결</td><td>전지 25+시지 5</td><td>전지 25+시지 0</td></tr>
+      </tbody>
+    </table>
+    <cite style="font-size:11.5px;">— 「미래를 여는 한국의 역사 2」(2011)</cite>
+    <div class="source-note">❸ 전시과는 (경종) 때 처음 만들어졌다(시정 전시과). 당시 전시과는 인품과 관품을 기준으로 토지를 지급하였는데, 이때 인품이란 지급 대상자의 사회적 지위 및 명망 등을 망라하는 용어이다. 이후 (목종) 때에 18과로 나누어 전시과 제도가 정비되었고(개정 전시과), (문종) 때에는 지급 대상을 현직 관리로 제한하였다(경정 전시과).</div>
+  </div>
+
+  <h3 class="subsection-title purple">귀족과 농민의 경제생활 (고려)</h3>
+  <div class="factor-grid">
+    <div class="factor-card purple">
+      <h4>귀족</h4>
+      <p>녹봉·전지·시지 수취 + 외거 노비에게 신공(베·곡물) 징수. 권력·<strong>고리대</strong>로 농민 토지 잠식 → 대규모 <strong>농장</strong> 형성. 대리인 파견해 수확량 절반 이상 수취.</p>
+    </div>
+    <div class="factor-card green">
+      <h4>농민</h4>
+      <p>민전·국공유지·타인 토지 경작 및 품팔이. 고려 후기 권세가·사원의 <strong>겸병·탈점</strong>으로 토지 상실. 양민을 강제로 노비로 만드는 폐단 심화.</p>
+    </div>
+  </div>
+
+  <div class="source-box">
+    <span class="source-label">자료 3 &nbsp;귀족과 농민의 경제생활</span>
+    <span class="source-sub">❶ 귀족의 경제생활</span>
+    <blockquote>"최세보는 …… 판상서이부사가 되었다. 욕심이 많고 성품이 깨끗하지 못하여 뇌물의 많고 적음을 보고 (사람들을) 승진시키거나 혹은 물리치더니, 재산이 쌓여 셀 수도 없을 정도에 이르렀다. …… 처음 최세보가 집을 지을 때 1개 방(坊)을 두루 차지하고, 사면에 각각 저택을 두어 자손에게 주려고 계획하였으나, 오래지 않아 가문이 모두 멸망하였다."</blockquote>
+    <cite>— 『고려사』</cite>
+    <span class="source-sub">❷ 농민의 경제생활</span>
+    <blockquote>"근년에 이르러 겸병이 더욱 심해져서 간악하고 흉악한 무리들은 주(州)를 타넘고 군(郡)을 포괄하며 산과 내를 표지로 삼아 모두 가리켜 조업전(祖業田)이라고 하면서 서로 빼앗으며 서로 빼앗으니, 한 땅의 주인이 5~6명을 넘고 1년에 조(租)를 거두는 것이 8~9차례에 이릅니다. …… 횡포를 부리고 빼앗고 약탈함이 도적보다 배나 심하니, 지방은 이들 때문에 시들고 쇠약해졌습니다."</blockquote>
+    <cite>— 『고려사』</cite>
+  </div>
+
+  <!-- 3. 조선 -->
+  <h2 class="section-title purple" id="a-ec-joseon">3 &nbsp;조선의 수취 체제와 경제생활</h2>
+
+  <h3 class="subsection-title">농본주의 경제 정책 &amp; 과전법의 변화</h3>
+  <div class="factor-grid">
+    <div class="factor-card blue">
+      <h4>농본주의</h4>
+      <p>개간 장려·조세 감면으로 농민 생활 안정. 『농사직설』 편찬 보급. 상공업 통제: <strong>시전 상인</strong>에게만 장사 허용, 난전 단속. <strong>장인</strong>은 관청에 등록 후 물품 납품.</p>
+    </div>
+    <div class="factor-card orange">
+      <h4>과전법 → 직전법 → 폐지</h4>
+      <p>과전법(경기 지방 토지만 지급, 사망 시 반환) → 수신전·휼양전 세습 증가 → 토지 부족 → <strong>직전법</strong>(세조, 현직 관리만 지급) → 수조권 남용 → <strong>관수 관급제</strong>(성종) → 직전법 폐지 → 국가 토지 지배권 강화.</p>
+    </div>
+  </div>
+
+  <div class="source-box">
+    <span class="source-label">자료 1 &nbsp;농본주의의 경제 정책</span>
+    <blockquote>"임금이 전교하기를, '나라는 백성으로 근본을 삼고, 백성은 먹는 것으로 하늘을 삼는 것인데, 농자(王者)의 정치에서 먼저 힘써야 할 것이다. …… 백성서 나의 백성의 생명이 장수하게 되고, 우리나라의 근본을 견고하게 한다면, 거의 집집마다 넉넉하고 사람마다 족하여 예의를 지켜 서로 겸양하는 풍속이 일어나게 되고, 시대는 평화롭고 해마다 풍족하여 함께 태평 시대의 즐거움을 누릴 수 있을 것이다.'라고 하였다."</blockquote>
+    <cite>— 『세종실록』, 1444. 윤7.</cite>
+  </div>
+
+  <div class="source-box">
+    <span class="source-label">자료 2 &nbsp;직전법의 폐지를 건의하는 상소문</span>
+    <blockquote>"신료들이 아뢰기를, '지금 직전을 설치하니, 관리와 포악한 노비들이 (자기 상전이) 교체될까 심히 두려워하여, 조세의 징수를 독촉하는 것이 날로 더 심합니다. …… 원하옵건대 직전을 혁파하고 의창에 속하게 한다면 …… 홍수와 가뭄이 닥친다고 하더라도 가히 굶주린 백성들에게 진휼할 수 있어 그들이 굶주림을 면할 수 있을 것입니다. …… 백성들을 침탈하여 동요하게 만들거나 농간을 부려 마구 거두는 폐단이 없어질 것입니다.'라고 하였다."</blockquote>
+    <cite>— 『예종실록』, 1469. 2.</cite>
+  </div>
+
+  <h3 class="subsection-title">조선 전기 수취 체제 — 조세·공납·역</h3>
+  <div class="factor-grid">
+    <div class="factor-card blue">
+      <h4>조세 — 공법 (세종)</h4>
+      <p>수확량의 <strong>10분의 1</strong> 징수. 세종: 토지 비옥도(<strong>전분 6등급</strong>)와 풍흉(<strong>연분 9등급</strong>)에 따라 차등 징수하는 <strong>공법(貢法)</strong> 시행.</p>
+    </div>
+    <div class="factor-card green">
+      <h4>공납 — 방납의 폐단</h4>
+      <p>왕실·관청 수요를 위해 지역 토산물 현물 징수. 군현 단위 부과 → 각 호 할당. 16세기 이후 <strong>방납(防納)</strong>(대납업자가 대신 납부하고 수배 이익 챙기는 폐단) 심화.</p>
+    </div>
+    <div class="factor-card purple">
+      <h4>역 — 보법 (세조)</h4>
+      <p><strong>16세 이상</strong> 정남: 군역+요역 의무. 세조 때 정군 1인을 보충 2인이 지원하는 <strong>보법(봉족)</strong> 정비.</p>
+    </div>
+  </div>
+
+  <div class="source-box">
+    <span class="source-label">자료 4 &nbsp;조선 전기 공납 징수의 문제점</span>
+    <blockquote>"각 도에서 중앙 관청에 납부하는 공물을 해당 관리들이 매우 정밀하게 살피면서 모두 품질이 나쁘다 하여 받아들이지 않고, 대신 도성 안에서 사들인 물품을 납부할 때라야만 이를 받아들입니다. 뿐만 아니라 관청 아전들이 이 과정에서 이득을 노려 다투어 대납을 하면서 원래 공물 가격의 몇 배를 따라서 요구하고 있습니다."</blockquote>
+    <cite>— 『세종실록』, 1439. 윤2.</cite>
+    <div class="source-note">❶ 공납은 현물 납부를 원칙으로 하였다. 그러나 해당 군현에서 공물이 생산되지 않거나 공물 부과의 형평성을 맞추기 어려워 공물을 대신 납부하고 농민에게 그 대가를 받는 대납이 성행하였다. 대납은 대부분 대리인이 이익을 놓고 행하였으며, 해당 고을에서 생산할 수 있는 물품조차 대납을 하는 경우가 있었다. 한편 대납업자들이 공물을 대신 납부하고 중간 이윤을 취하기 위해 농민들이 직접 공물을 납부하는 것을 방해하는 행위를 <strong>방납(防納)</strong>이라고 부른다.</div>
+  </div>
+
+  <h2 class="section-title teal" id="a-ec-joseon-late">조선 후기 수취 체제의 변화</h2>
+  <div class="factor-grid">
+    <div class="factor-card blue">
+      <h4>영정법 (인조) — 전세</h4>
+      <p>양 난 후 공법의 복잡성 해소. 풍흉에 관계없이 토지 1결당 <strong>4~6두</strong>로 고정.</p>
+    </div>
+    <div class="factor-card green">
+      <h4>대동법 (광해군→숙종) — 공납</h4>
+      <p>방납 폐단 해결. 집집마다 토산물 → 토지 1결당 <strong>쌀 12두</strong>(또는 삼베·무명·동전). <strong>공인</strong> 등장 → 상품 화폐 경제 촉진.</p>
+    </div>
+    <div class="factor-card orange">
+      <h4>균역법 (영조) — 군역</h4>
+      <p>양반 군역 면제 확산으로 상민 부담 가중. 장정 1인당 군포 <strong>2필 → 1필</strong>로 감소.</p>
+    </div>
+  </div>
+
+  <table class="cmp-table">
+    <thead><tr><th class="th-teal">구분</th><th class="th-teal">전세 (조세)</th><th class="th-teal">공납</th><th class="th-teal">역</th></tr></thead>
+    <tbody>
+      <tr><td class="td-k">전기</td><td>공법 (전분 6등급·연분 9등급)</td><td>토산물 현물 납부 → 방납 폐단</td><td>군역·요역 (16세 이상)</td></tr>
+      <tr><td class="td-k">후기</td><td>영정법 (1결당 4~6두 고정)</td><td>대동법 (1결당 쌀 12두)</td><td>균역법 (군포 1필)</td></tr>
+      <tr><td class="td-k">결과</td><td>세수 안정화</td><td>공인 등장, 상품 화폐 경제 발달</td><td>상민 부담 경감</td></tr>
+    </tbody>
+  </table>
+
+  <div class="source-box">
+    <span class="source-label">자료 5 &nbsp;대동법의 시행 목적</span>
+    <blockquote>"김육이 아뢰기를, '대동법은 역을 고르게 하여 백성을 편안케 하기 위한 것이니 실로 사회의 폐단을 시정할 수 있는 좋은 계책입니다. …… 마땅히 이 도(호서)에서 먼저 시행하여야 하는데, 삼남 지방에는 부호들이 많이 있습니다. 이 법을 시행하는 것을 부호들은 좋아하지 않습니다만, 나라에서 법을 시행하는 데 있어서 마땅히 (민지) 일반 백성들의 바람을 따라야 합니다. 어찌 부호들이 꺼린다고 하여서 백성들에게 편리한 법을 시행하지 않아서야 되겠습니까?'라고 하였다."</blockquote>
+    <cite>— 『효종실록』, 1649. 11.</cite>
+  </div>
+
+  <h2 class="section-title green" id="a-ec-commerce">조선 후기 상품 화폐 경제의 발달</h2>
+  <div class="factor-grid">
+    <div class="factor-card green">
+      <h4>농업 생산력 증대</h4>
+      <p><strong>모내기법(이앙법)</strong> 보급 → 벼·보리 <strong>이모작</strong>·광작 가능. 일부 농민은 부농 성장. <strong>상품 작물</strong>(담배·인삼) 재배로 재산 증식. 많은 농민은 고리대·세금 부담으로 빈농화.</p>
+    </div>
+    <div class="factor-card blue">
+      <h4>상업 발달</h4>
+      <p>정조 때 <strong>금난전권 철폐</strong>(신해통공, 1791) → 사상 활동 활발. 경강상인·송상·만상·내상 등 대표 <strong>사상</strong> 성장. 17세기 중엽 이후 <strong>상평통보</strong> 전국 유통.</p>
+    </div>
+    <div class="factor-card orange">
+      <h4>수공업·광업</h4>
+      <p>18세기 말 <strong>민영 수공업</strong> 허용. 상인이 대금 선지급 후 생산하는 <strong>선대제</strong> 유행. 청과 무역으로 은 수요 증가 → <strong>민간 광산 채굴</strong> 허용 + 세금 징수.</p>
+    </div>
+  </div>
+
+  <div class="source-box">
+    <span class="source-label">자료 6 &nbsp;금난전권의 철폐</span>
+    <blockquote>"요즘 시대의 민폐를 말하자면 시전의 금난전 행위가 으뜸이다. 우리나라의 금난전권은 국역을 진(육의전)을 하여금 이익을 온전케 하기 위해 실시한 것이다. 그러나 근래에는 무뢰배들이 상업으로 시전을 만들어 일상 생활품을 독점하지 않는 것이 없다. …… 30년 이전에 조직된 작은 규모의 시전들을 해체하고, 또 육의전 이외의 시전에는 금난전권을 인정하지 말며, 그것을 어기는 상인은 법으로 다스려야 할 것이다."</blockquote>
+    <cite>— 『정조실록』, 1791. 1.</cite>
+  </div>
+
+  <div class="source-box">
+    <span class="source-label">자료 7 &nbsp;상품 화폐 경제의 발달</span>
+    <span class="source-sub">❶ 모내기법의 실시</span>
+    <blockquote>"일반적으로 모내기법을 귀중하게 여기는 이유는 세 가지가 있다. 김매기의 수고를 줄이는 것이 첫째이다. 두 땅의 힘으로 하나의 모를 서로 기르는 것이 둘째이다. 옛 흙을 떠나 새 흙으로 가서 고갱이를 씻어 내어 더러운 것을 제거하는 것이 셋째이다."</blockquote>
+    <cite>— 서유구, 『임원경제지』</cite>
+    <span class="source-sub">❷ 상품 작물의 재배</span>
+    <blockquote>"서도 지방 담배 밭 …… 강진의 고구마 밭, 황주의 지황 밭에서의 수확은 모두 상상등의 논에 나는 수확보다 그 이익이 10배에 이른다. 또 최근에는 인삼을 밭에 심어서 남는 이익이 혹 천만이나 된다."</blockquote>
+    <cite>— 정약용, 『경세유표』</cite>
+    <span class="source-sub">❸ 민영 수공업의 발달</span>
+    <blockquote>"옛날에는 오직 권세 있는 집이나 부유한 집에서 유기(놋그릇)를 사용하였으나 오늘날은 궁벽한 시골 마을의 오두막집에서도 유기를 쓰지 않는 곳이 없고, 3, 4벌씩 다 갖고 있다. 그러므로 곳곳에서 유기 장인들이 공장을 개설하고 유기를 주조하고 있다."</blockquote>
+    <cite>— 서유구, 『임원경제지』</cite>
+  </div>
+
+  <div class="source-box">
+    <span class="source-label">자료 3 &nbsp;면포의 보급과 생활의 변화</span>
+    <p>고려 후기 원으로부터 목화씨를 들여와 목화 재배가 확산되면서 사람들의 생활은 크게 변화하였다. 목화 실로 짠 <strong>무명(면포)</strong>은 삼베보다 높은 보온성과 내구성을 갖추었으며, 세금 납부 용도로도 통용되어 삼베·미곡(쌀)과 함께 대표적인 <strong>물품 화폐</strong>로 사용되었다.</p>
+  </div>
+
+</div>
+</div>
+<!-- ═══ TAB 5: 신분제와 사회 구조 ═══ -->
+<div class="tab-panel" id="panel-5">
+<div class="content-wrap">
+  <div class="unit-banner">📌 03. 신분제와 사회 구조</div>
+
+  <!-- 1. 고대 -->
+  <h2 class="section-title" id="a-sb-godae">1 &nbsp;고대의 신분제와 사회 구조</h2>
+
+  <h3 class="subsection-title">신분제 사회의 성립</h3>
+  <p>고조선 이래로 존재하였던 신분적 차별은 삼국 시대에 와서 구속력이 더욱 강해졌다. 개인의 신분은 능력보다 그가 속한 <strong>친족의 사회적 지위</strong>에 따라 결정되었다.</p>
+  <div class="factor-grid">
+    <div class="factor-card blue">
+      <h4>귀족 (지배층)</h4>
+      <p>왕족을 포함한 귀족 및 관인층. 정치·사회·경제 모든 영역에서 특권. 풍족하고 화려한 생활.</p>
+    </div>
+    <div class="factor-card green">
+      <h4>평민 (피지배층)</h4>
+      <p>대부분 자유민 농민. 소규모 토지 소유·농사. 국가에 <strong>조세·공납·요역·군역</strong> 부담. 정치적·사회적 제약 多.</p>
+    </div>
+    <div class="factor-card rose">
+      <h4>천민 (피지배층)</h4>
+      <p>대부분 <strong>노비</strong>. 왕실·관청·개인에 예속(남의 지배나 지휘 아래 매임)되어 힘든 일에 종사. 삼국 초기: 전쟁 포로·죄인 → 삼국 발전 후: 경제적 어려움으로 노비가 되는 경우 증가.</p>
+    </div>
+  </div>
+
+  <h3 class="subsection-title green">고대의 사회 구조 — 골품제</h3>
+  <p>삼국 초기에 고구려와 백제는 5부, 신라는 6부가 연합한 연맹체 국가를 이루었다. 중앙 집권 국가로 성장하면서 삼국은 각 부의 지배자를 중앙 관리로 흡수하여 새로운 관등 제도를 마련하였다. 신라의 <strong>골품제</strong>가 대표적이다.</p>
+  <div class="def-box">
+    <strong>골품제 (骨品制)</strong> — 성골·진골·6두품·5두품·4두품 등으로 구성. 왕족은 성골과 진골. 수도 6부의 지배층은 6두품 이하. 지방민은 골품의 편제 대상이 아니었다. 골품에 따라 <strong>관등과 관직 승진</strong>에 제한을 두고, <strong>가옥·수레의 크기·옷차림·그릇의 사용</strong> 등 일상생활까지 규제하였다. 고구려와 백제에도 유사한 신분 제도가 존재하였다.
+  </div>
+  <div class="note">💡 삼국은 <strong>율령</strong>을 제정하여 통치 질서를 유지하였다. 특히 엄격한 형벌 제도를 시행하였고 관등에 따라 관리가 입는 옷과 머리에 쓰는 관을 다르게 하였다.</div>
+
+  <div class="source-box">
+    <span class="source-label">자료 1 &nbsp;고대인의 무덤에 담긴 신분제 사회 모습</span>
+    <span class="source-sub">❶ 무덤 주인공 상차림 모습</span>
+    <p style="font-size:13px;">고대 사람들은 현세의 생활이 사후에도 이어진다는 생각으로 여러 형태의 무덤을 만들었다. 특히 고구려의 고분 벽화는 굴식 돌방무덤에서 많이 발견되는데, 고분 벽화에는 당시 사람들의 생활 모습과 신분 관념 등이 묘사되어 있다.</p>
+    <span class="source-sub">❷ 묘지명에 담긴 고대 신분제</span>
+    <blockquote>"부군의 이름은 상지이고, 자는 향원으로 백제인이다. …… 그 조상은 부여씨로부터 나왔는데, 혹치에 봉해졌기 때문에 자손들이 이를 씨로 삼았다. 그 가문은 대대로 달솔을 역임하였다."</blockquote>
+    <cite>— 흑치상지묘지명(중국 난징박물원)</cite>
+    <div class="source-note">❸ 흑치상지 집안은 대대로 달솔의 관등을 역임하였다고 전한다. 백제에 가문별로 일정한 관등 이상으로 승진할 수 없다고 하는 규정이 존재하였음을 알려 준다.</div>
+  </div>
+
+  <div class="source-box">
+    <span class="source-label">자료 2 &nbsp;골품제</span>
+    <span class="source-sub">❶ 골품에 따른 가옥에 관한 규정</span>
+    <blockquote>"진골 가옥의 방은 길이와 너비가 24척을 넘을 수 없고, 6두품은 21척을 넘을 수 없다. …… 4두품과 백성 가옥의 방은 길이와 너비가 15척을 넘지 못한다."</blockquote>
+    <cite>— 『삼국사기』</cite>
+    <span class="source-sub">❷ 설계두의 골품제 비판</span>
+    <blockquote>"신라에서 사람을 등용하는 데 골품을 따지므로 진실로 그 족속이 아니면, 비록 뛰어난 재주와 큰 공이 있어도 그 한계를 뛰어넘지 못한다."</blockquote>
+    <cite>— 『삼국사기』</cite>
+    <div class="source-note">❹ 글품 가운데 성골은 진덕 여왕의 사망 이후에 사라졌고, 삼국 통일 후 3~1두품은 점차 평민으로 여겨졌다. 자료는 골품에 따라 정치 활동과 일상생활에 제한을 받았음을 보여 준다.</div>
+  </div>
+
+  <div class="source-box">
+    <span class="source-label">자료 3 &nbsp;고대의 법령</span>
+    <span class="source-sub">❶ 고구려의 법률</span>
+    <blockquote>"형법에서 모반한 사람과 반역자는 사형에 처하고, 가족은 노비로 삼고 그 집 안 재산은 몰수한다. 남의 물건을 훔친 자는 장물의 10여 배를 배상하게 한다. 만약 가난하여 능히 갖추어 낼 수 없거나 공사의 채무가 있는 자는 모두 평결하여 그 자녀를 노비로 삼아 배상하게 한다."</blockquote>
+    <cite>— 『주서』</cite>
+    <span class="source-sub">❷ 백제의 법률</span>
+    <blockquote>"관리로서 뇌물을 받거나 도둑질한 자는 그 세 배를 배상하고 평생 벼슬길에 나가지 못하게 하였다."</blockquote>
+    <cite>— 『구당서』</cite>
+  </div>
+
+  <!-- 2. 고려 -->
+  <h2 class="section-title orange" id="a-sb-goryeo">2 &nbsp;고려의 신분제와 사회 구조</h2>
+
+  <h3 class="subsection-title">고려의 신분 구성</h3>
+  <p>고려의 신분제는 법제적으로 <strong>양인과 천인</strong>으로 구분된 <strong>양천제</strong>였다. 그러나 사회 신분은 지배층인 귀족과 중류층, 피지배층인 평민과 천민으로 나뉘었다. 양인 중에서 국가로부터 일정한 <strong>직역</strong>(관직이나 관역과 같은 국가 공공 업무의 몫)을 부여받은 사람을 <strong>정호</strong>라고 불렀다.</p>
+
+  <table class="cmp-table">
+    <thead><tr><th class="th-orange">신분</th><th class="th-orange">구성</th><th class="th-orange">특징</th></tr></thead>
+    <tbody>
+      <tr><td class="td-k-orange">귀족 (지배층)</td><td>문무 관리 중심</td><td>일부는 대대로 고위 관직 → 최고 지배층인 <strong>문벌</strong> 형성. 문벌 간 혼인으로 권력 독점, 음서로 관직 진출.</td></tr>
+      <tr><td class="td-k-orange">중류층 (지배층)</td><td>서리·향리·남반·하급 장교</td><td>통치 기구 하위에서 행정 실무 담당. 직역의 대가로 국가로부터 조세를 수취할 수 있는 토지를 받았다.</td></tr>
+      <tr><td class="td-k-orange">평민 (피지배층)</td><td>농민·상인·수공업자·향·부곡·소민</td><td><strong>백정</strong>으로 불린 농민이 생산 활동 담당, 조세·공납·역 의무. 상인·수공업자는 농민보다 낮은 대우.</td></tr>
+      <tr><td class="td-k-orange">천민 (피지배층)</td><td>노비 (공노비·사노비)</td><td>재산으로 취급. 부모 중 한 명이 노비면 자녀도 노비. 공납·역 의무 없으나 과거 응시 법적으로 불허.</td></tr>
+    </tbody>
+  </table>
+  <div class="tip">✅ 고려는 제한적이나마 지위와 신분을 상승시킬 수 있었다. 이는 고려 사회가 신라 골품제 사회보다 개방적이었음을 보여 준다.</div>
+
+  <h3 class="subsection-title orange">향·부곡·소 — 특수 행정 구역</h3>
+  <div class="rose-box">
+    향·부곡·소를 분관으로 하는 사람들은 <strong>잡척(雜尺)</strong>이라 불리어 일반 군현의 주민과 구분하였다. 이들은 과거 응시 자격이 없었고 국학에도 입학할 수 없었다. 형벌을 받을 때는 노비와 동등하게 취급되었다. 일반 양민과 결혼하거나 승려가 되는 것도 금지되었다. 특히 거주지 이동에 제한을 받았으며, 일반 군현 사람들에 비해 과중한 조세와 부역을 부담하였다.
+  </div>
+
+  <h3 class="subsection-title green">다원적인 사회 운영</h3>
+  <p>건국 초 고려는 발해 유민을 적극적으로 받아들이고, 호족 등 지방 세력을 지배 세력으로 수용하였다. 고려 사회 구조는 <strong>다원적 성격</strong>을 띠게 되었다. 또한 <strong>본관제</strong>(이름 앞에 출신지를 표시하게 한 제도)를 시행하여 주민들에게 소속된 지역을 확인시키고 거주 지역을 떠나지 못하게 하였다.</p>
+
+  <div class="source-box">
+    <span class="source-label">자료 2 &nbsp;고려의 신분 질서 변동</span>
+    <span class="source-sub">❶ 부곡인 유청신</span>
+    <blockquote>"유청신의 초명은 유비이고, 장홍부 고이부곡 사람이며 …… 비록 공책이 있어도 5품 이상 승진할 수 없었지만 …… 몽골어를 배워서 여러 번 사신을 따라 원에 가서 응대를 잘하였으므로, 이로 인하여 충렬왕의 신임을 얻어 낭장에 임명되었다. …… 왕의 교서에 이르기를 '…… 또 고이부곡을 고흥현으로 승격시키도록 하라'고 하였다."</blockquote>
+    <cite>— 『고려사』</cite>
+    <span class="source-sub">❷ 노비 평량</span>
+    <blockquote>"평량은 평장사 김영관의 노비로 …… 농사에 힘써 부유해지자, 권세가 있는 고관에 뇌물을 바쳐 천인에서 벗어나 양민이 되어 산원동정의 벼슬을 얻었다. 그의 처는 소감 왕원지의 집안 노비였는데 …… 평량이 …… 길에서 몰래 처남과 함께 원지 부부와 아들을 죽이고, 스스로 그 주인이 없어졌으므로 계속해서 양인으로 행세할 수 있음을 다행으로 여겼다."</blockquote>
+    <cite>— 『고려사』</cite>
+  </div>
+
+  <!-- 3. 조선 -->
+  <h2 class="section-title purple" id="a-sb-joseon">3 &nbsp;조선의 신분제와 사회 구조</h2>
+
+  <h3 class="subsection-title">조선 전기 신분 질서의 확립</h3>
+  <p>조선은 건국 후 양인과 천인으로 구분하는 <strong>양천제</strong>를 실시하였다. 그러나 16세기 이후 <strong>양반·중인·상민·천민</strong>으로 이루어진 신분제가 점착되었다.</p>
+
+  <table class="cmp-table">
+    <thead><tr><th class="th-purple">신분</th><th class="th-purple">구성</th><th class="th-purple">특징</th></tr></thead>
+    <tbody>
+      <tr><td class="td-k" style="color:var(--purple)">양반</td><td>문반+무반 (문·무 관료)</td><td>과거·음서로 관직 진출, 형벌 집행 특혜. 많은 토지·노비 소유, 녹봉·과전 수취. 향촌 운영 참여, 유학자 교양.</td></tr>
+      <tr><td class="td-k" style="color:var(--purple)">중인</td><td>서리·향리·역관·의원·기술관·서얼</td><td>중앙·지방 관청 행정 실무 담당. 같은 신분끼리 혼인, 직책 세습. <strong>서얼</strong>은 양반의 자식이라도 첩에게서 태어나 문과 응시 불가, 중인과 같은 대우.</td></tr>
+      <tr><td class="td-k" style="color:var(--purple)">상민 (평민)</td><td>농민·수공업자·상인</td><td>법적으로 과거 응시 가능하나 실제 드묾. 조세·공납·역 의무. 양인 중 <strong>백정·광대</strong> 등은 천민은 아니나 관습적으로 천대.</td></tr>
+      <tr><td class="td-k" style="color:var(--purple)">천민</td><td>노비 (대부분)</td><td>재산으로 취급, 매매·상속·증여 대상. 부모 중 한쪽이 노비이면 자녀도 노비. 노비의 종류와 사회적 지위 등은 고려 시대와 거의 같음.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="source-box">
+    <span class="source-label">자료 1 &nbsp;양반</span>
+    <blockquote>"하느님이 백성을 낳으시고, 그 백성이 넷이다. 네 백성 가운데 선비가 가장 귀한 자이다. 양반이라고 부르며, 이익이 이보다 큰 것이 없다. 농사를 짓지 않고, 장사도 하지 않으며, 글과 역사를 대강 섭렵하면, 크게 되면 문과에 급제하고, 작게 되어도 진사가 된다."</blockquote>
+    <cite>— 박지원, 『양반전』</cite>
+  </div>
+
+  <div class="source-box">
+    <span class="source-label">자료 2 &nbsp;중인</span>
+    <blockquote>"사헌부 대사헌 채수가 아뢰기를, '어제 전지를 보니 통역관, 의관을 권장하고 장려하고자 능통하고 재주가 있는 자는 동서 양반에서 발탁하여 쓰라고 특별히 명령하셨다니 듣고 놀랐습니다. 무릇 벼슬에는 높고 낮은 것이 있고 직책에는 가볍고 무거운 것이 있습니다. 무당, 의관, 약사, 통역관은 사대부의 반열에 낄 수 없습니다. 의관, 역관 무리는 모두 미천한 계급 출신으로서 사족이 아닙니다.'라고 하였다."</blockquote>
+    <cite>— 『성종실록』, 1482. 4.</cite>
+  </div>
+
+  <div class="source-box">
+    <span class="source-label">자료 3 &nbsp;노비</span>
+    <p style="font-size:13px;margin-bottom:6px;">● 무릇 노비의 매매는 관청에 신고해야 하며 사사로이 몰래 사고팔았을 때는 관청에서 노비와 그 대가로 받은 물건을 모두 몰수한다.<br>● 공노비의 경우 1년 몸값은 남자 노비는 면포 1필과 저화 20장, 여자 종은 면포 1필과 저화 10장이다.</p>
+    <cite>— 『경국대전』</cite>
+    <div class="source-note">❶ 조선 시대 노비는 일종의 재산으로 여겨졌다. 당시 면포 1필은 저화 20장에 해당하며, 1장은 쌀 1되(약 0.8㎏)에 해당하였다. 예를 들어 남자 공노비의 몸값은 쌀 약 32㎏였다.</div>
+  </div>
+
+  <h3 class="subsection-title purple">양반 중심 향촌 지배 질서의 확립</h3>
+  <p>조선 시대 양반은 학자이자 향촌 사회의 지주로서 농민을 지배하였다. 이들은 <strong>향안</strong>(지역 양반의 명단)을 작성하고 그 운영 규칙인 <strong>향규</strong>를 만들었다. 또한 정기적으로 <strong>향회</strong>(지역 양반의 회의)를 열어 결속을 다지면서 향촌에서 영향력을 행사하였다.</p>
+  <div class="factor-grid">
+    <div class="factor-card purple">
+      <h4>유향소 (향청)</h4>
+      <p>조선이 양반의 자치를 허용하기 위해 설치. 향촌 사회의 여론을 수렴하여 수령의 통치를 보좌하고 향리를 감독하거나 풍속을 바로잡는 일을 하였다.</p>
+    </div>
+    <div class="factor-card blue">
+      <h4>경재소</h4>
+      <p>한성에 설치하여 유향소를 중앙에서 통제할 수 있게 하였다.</p>
+    </div>
+    <div class="factor-card green">
+      <h4>서원·향약 (16세기 이후)</h4>
+      <p>사림의 정치적 진출이 활발해지자 각 지방에 <strong>서원</strong>이 많이 세워지고 <strong>향약</strong>이 보급되었다. 서원과 향약의 확대로 양반 중심의 향촌 지배 체제가 견고해졌다.</p>
+    </div>
+  </div>
+
+  <div class="source-box">
+    <span class="source-label">자료 4 &nbsp;상공업을 천시한 이유</span>
+    <blockquote>"시장에서 이익을 좇는 자는 오히려 배불리 먹는 즐거움을 얻는다. 이 때문에 본업(농업)에 힘쓰는 자는 날로 줄고 말업(상업)을 좇는 자는 날로 늘어나니, 어찌 백성이 곤궁해지지 않겠는가?"</blockquote>
+    <cite>— 강희맹, 『촬양잡록』</cite>
+    <blockquote style="margin-top:8px;">"백성 중에서 게으르고 놀기 좋아하는 자들이 수공업과 상업에 종사하여 농사를 짓는 백성이 줄어들었으며, 상업이 발달하고 농업이 피폐하였다. 이것을 염려하지 않을 수 없다."</blockquote>
+    <cite>— 정도전, 『조선경국전』</cite>
+  </div>
+
+  <!-- 4. 조선 후기 신분 변동 -->
+  <h2 class="section-title teal" id="a-sb-late">4 &nbsp;조선 후기 신분 질서의 변동</h2>
+  <p>양 난 이후 양반 중심의 신분 질서에 큰 변화가 일어났다. <strong>양반의 수는 크게 늘어난 반면</strong>, 상민과 노비의 수가 줄면서 신분제가 동요하여 양반 중심의 신분 질서가 무너져 갔다.</p>
+
+  <div class="factor-grid">
+    <div class="factor-card blue">
+      <h4>양반층 분화</h4>
+      <p>부유해진 상민이 <strong>납속</strong>(나라에 곡식을 바침)·공명첩 구매·족보 매입·위조 등으로 양반이 됨. 반면 일부 양반은 관직 상실 → <strong>향반</strong>(시골 양반) 또는 <strong>잔반</strong>(몰락 양반)으로 전락.</p>
+    </div>
+    <div class="factor-card green">
+      <h4>중인·서얼 신분 상승 운동</h4>
+      <p>서얼과 기술직 중인은 여러 차례 집단 상소로 관직 진출 제한 철폐를 요구. 서얼에 대한 차별은 점차 완화. 기술직 중인의 차별 철폐 요구는 받아들여지지 않았다.</p>
+    </div>
+    <div class="factor-card orange">
+      <h4>노비 신분 변화</h4>
+      <p>노비는 도망가서 양인으로 행세하거나 납속·군공을 이용해 신분 상승. <strong>영조</strong>: <strong>노비종모법</strong> 시행(노비의 신분 상승 기회 확대). <strong>순조</strong>: 중앙 관청 소속 공노비 해방(1801).</p>
+    </div>
+  </div>
+  <div class="warning">⚠️ 향촌 사회에서 양반의 권위가 약화된 반면, 새로 성장한 <strong>부농층</strong>이 수령과 결탁하여 영향력을 확대. 향회는 점차 수령의 자문 기구로 성격이 바뀌어 갔다.</div>
+
+  <div class="source-box">
+    <span class="source-label">자료 5 &nbsp;서얼 허통과 노비종모법</span>
+    <span class="source-sub">❶ 서얼 허통 주장</span>
+    <blockquote>"우리 왕조가 서얼의 벼슬길을 막은 지 300여 년이 되었으니, 폐단이 큰 정책으로 이보다 더한 것이 없습니다. 옛날을 상고해도 그러한 법이 없고, 예법과 형률을 살펴봐도 근거가 없습니다."</blockquote>
+    <cite>— 박지원, 『면암집』</cite>
+    <span class="source-sub">❷ 노비종모법의 시행</span>
+    <blockquote>"공·사노비의 양인 처 소생은 한결같이 어머니의 역을 따르게 법을 세우라고 명하였다. 이에서 판부사 송시열이 아뢰기를, '…… 지금 양민이 날로 줄어들고 있는 것은 실로 이 법을 시행하지 않기 때문입니다. 속히 제도를 만들어 변통하소서.'라고 하였다."</blockquote>
+    <cite>— 『현종실록』, 1669. 1.</cite>
+  </div>
+
+  <div class="source-box">
+    <span class="source-label">자료 6 &nbsp;향회의 성격 변화</span>
+    <blockquote>"이른바 향회라고 하는 것은 애당초 어느 한 고을 사족의 공론에 따른 것이 아니고, 좌수·별감이라는 자들이 수령의 턱 아래 놀면서 …… 통문을 돌려 모은 것에 불과합니다. 그 향회에서는 혹 관의 비용이 부족하다는 핑계로, 또는 민역을 마감해야 한다는 이유를 들어 제멋대로 강제로 세금을 거두고, 손이 가는 대로 법을 만드니 일의 원통함이 이보다 심한 것이 없습니다."</blockquote>
+    <cite>— 이성중, 『질암유고』</cite>
+    <div class="source-note">❶ 수령과 결탁한 새로운 부농층이 점차 향회를 장악해 나가면서 향회의 수령 견제 기능이 약해졌다. 이는 수령과 향리에 의한 농민 수탈이 심해지는 결과를 낳았다.</div>
+  </div>
+
+  <div class="source-box">
+    <span class="source-label">자료 3 &nbsp;신분별 호구 구성비 (울산 호적) — 신분제의 동요</span>
+    <div class="chart-wrap" style="margin-top:10px;">
+      <div class="chart-card" style="flex:1;">
+        <div class="chart-card-title">신분별 호구 구성비 변화 (울산 호적)</div>
+        <div class="bar-row"><span class="bar-label">1729년</span><div class="bar-track" style="position:relative;">
+          <div style="display:flex;height:18px;border-radius:4px;overflow:hidden;">
+            <div style="width:13.9%;background:var(--rose);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:700;">13.9%</div>
+            <div style="width:59.8%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:700;">59.8%</div>
+            <div style="width:26.3%;background:var(--primary);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:700;">26.3%</div>
+          </div>
+        </div></div>
+        <div class="bar-row"><span class="bar-label">1765년</span><div class="bar-track" style="position:relative;">
+          <div style="display:flex;height:18px;border-radius:4px;overflow:hidden;">
+            <div style="width:2%;background:var(--rose);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:700;">2%</div>
+            <div style="width:57%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:700;">57%</div>
+            <div style="width:41%;background:var(--primary);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:700;">41%</div>
+          </div>
+        </div></div>
+        <div class="bar-row"><span class="bar-label">1804년</span><div class="bar-track" style="position:relative;">
+          <div style="display:flex;height:18px;border-radius:4px;overflow:hidden;">
+            <div style="width:0.9%;background:var(--rose);"></div>
+            <div style="width:45.6%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:700;">45.6%</div>
+            <div style="width:53.5%;background:var(--primary);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:700;">53.5%</div>
+          </div>
+        </div></div>
+        <div class="bar-row"><span class="bar-label">1867년</span><div class="bar-track" style="position:relative;">
+          <div style="display:flex;height:18px;border-radius:4px;overflow:hidden;">
+            <div style="width:0.5%;background:var(--rose);"></div>
+            <div style="width:34%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:700;">34%</div>
+            <div style="width:65.5%;background:var(--primary);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:700;">65.5%</div>
+          </div>
+        </div></div>
+        <div style="display:flex;gap:12px;margin-top:8px;font-size:11.5px;">
+          <span><span style="display:inline-block;width:10px;height:10px;background:var(--rose);border-radius:2px;margin-right:3px;"></span>노비</span>
+          <span><span style="display:inline-block;width:10px;height:10px;background:var(--teal);border-radius:2px;margin-right:3px;"></span>상민</span>
+          <span><span style="display:inline-block;width:10px;height:10px;background:var(--primary);border-radius:2px;margin-right:3px;"></span>양반</span>
+        </div>
+        <cite style="font-size:11.5px;">— 『조선 후기 사회 변동 연구』(1983)</cite>
+      </div>
+    </div>
+  </div>
+
+  <div class="source-box">
+    <span class="source-label">자료 2 &nbsp;신분제의 동요</span>
+    <blockquote>"옷차림은 신분의 귀천을 나타내는 것이다. 그런데 어찌 된 까닭인지 근래 이것이 문란해져 상민과 천민이 갓을 쓰고 도포를 입는 것이 마치 조정의 관리나 선비같이 한다. …… 심지어 시전 상인이나 군역을 지는 상민까지도 서로 양반이라 부른다."</blockquote>
+    <cite>— 『일성록』</cite>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══ TAB 6: 개념 한눈에 보기 ═══ -->
+<div class="tab-panel" id="panel-6">
+<div class="content-wrap">
+  <div class="unit-banner">📋 개념 한눈에 보기</div>
+  <div class="map-tip">💡 큰 제목 버튼을 클릭하면 해당 탭으로, 작은 버튼을 클릭하면 해당 탭의 세부 섹션으로 바로 이동합니다.</div>
+
+  <!-- 탭 1: 붕당 정치 -->
+  <div class="map-section">
+    <div class="map-root">
+      <button class="map-root-head" style="background:var(--primary);color:#fff;" onclick="goTo(0,null)">
+        <span class="map-root-icon">1</span> 붕당 정치와 탕평 정치
+      </button>
+      <div class="map-children">
+        <button class="map-node blue" onclick="goTo(0,'a-bibyeonsa')">🏛️ 비변사 강화 · 5군영 · 속오군</button>
+        <button class="map-node blue" onclick="goTo(0,'a-bungdang')">🎯 붕당 정치의 전개와 변질</button>
+        <button class="map-node blue" onclick="goTo(0,'a-yesong')">📜 예송(禮訟) — 1·2차 비교</button>
+        <button class="map-node blue" onclick="goTo(0,'a-yeongjo')">👑 영조의 탕평 정치</button>
+        <button class="map-node blue" onclick="goTo(0,'a-jeongjo')">👑 정조의 탕평 정치</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 탭 2: 세도 정치 -->
+  <div class="map-section">
+    <div class="map-root">
+      <button class="map-root-head" style="background:var(--green);color:#fff;" onclick="goTo(1,null)">
+        <span class="map-root-icon">2</span> 세도 정치와 농민 봉기
+      </button>
+      <div class="map-children">
+        <button class="map-node green" onclick="goTo(1,'a-sedo')">🏚️ 세도 정치 전개 (순조~철종 60년)</button>
+        <button class="map-node green" onclick="goTo(1,'a-samjeong')">💸 삼정의 문란 (전정·군정·환곡)</button>
+        <button class="map-node green" onclick="goTo(1,'a-hong')">⚡ 홍경래의 난 (1811)</button>
+        <button class="map-node green" onclick="goTo(1,'a-imsul')">✊ 임술 농민 봉기 (1862)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 탭 3: 흥선 대원군 -->
+  <div class="map-section">
+    <div class="map-root">
+      <button class="map-root-head" style="background:var(--purple);color:#fff;" onclick="goTo(2,null)">
+        <span class="map-root-icon">3</span> 흥선 대원군의 개혁 정치
+      </button>
+      <div class="map-children">
+        <button class="map-node purple" onclick="goTo(2,'a-hs-bg')">⚙️ 집권 배경</button>
+        <button class="map-node purple" onclick="goTo(2,'a-gwongang')">🏛️ 왕권 강화 (비변사 폐지·대전회통)</button>
+        <button class="map-node purple" onclick="goTo(2,'a-gyeongbok')">🏯 경복궁 중건 (원납전·당백전)</button>
+        <button class="map-node purple" onclick="goTo(2,'a-minsaeng')">🌾 삼정 개혁 (양전·호포제·사창제)</button>
+        <button class="map-node purple" onclick="goTo(2,'a-seowon')">🏫 서원 철폐 (47곳 존치)</button>
+        <button class="map-node purple" onclick="goTo(2,'a-hs-sum')">📊 개혁 정리표</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 탭 4: 국제 관계와 대외 교류 -->
+  <div class="map-section">
+    <div class="map-root">
+      <button class="map-root-head" style="background:var(--teal);color:#fff;" onclick="goTo(3,null)">
+        <span class="map-root-icon">4</span> 국제 관계와 대외 교류
+      </button>
+      <div class="map-children">
+        <button class="map-node teal" onclick="goTo(3,'a-int-godae')">🌏 고대 — 조공·책봉·아스카 문화·청해진</button>
+        <button class="map-node teal" onclick="goTo(3,'a-int-goryeo')">🏯 고려 — 다원적 외교 (거란·여진·몽골)</button>
+        <button class="map-node teal" onclick="goTo(3,'a-int-joseon')">🏛️ 조선 — 사대교린·4군 6진·3포</button>
+        <button class="map-node teal" onclick="goTo(3,'a-int-sum')">📊 시기별 비교표</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 탭 5: 수취 체제와 경제생활 -->
+  <div class="map-section">
+    <div class="map-root">
+      <button class="map-root-head" style="background:var(--orange);color:#fff;" onclick="goTo(4,null)">
+        <span class="map-root-icon">5</span> 수취 체제와 경제생활
+      </button>
+      <div class="map-children">
+        <button class="map-node orange" onclick="goTo(4,'a-ec-godae')">🏺 고대 — 조세·공물·역 / 녹읍→관료전</button>
+        <button class="map-node orange" onclick="goTo(4,'a-ec-goryeo')">🏯 고려 — 수취 제도 / 전시과 변화</button>
+        <button class="map-node orange" onclick="goTo(4,'a-ec-joseon')">📜 조선 — 농본주의 / 과전법→직전법</button>
+        <button class="map-node orange" onclick="goTo(4,'a-ec-joseon-late')">⚖️ 조선 후기 — 영정법·대동법·균역법</button>
+        <button class="map-node orange" onclick="goTo(4,'a-ec-commerce')">💰 상품 화폐 경제의 발달</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 탭 6: 신분제와 사회 구조 -->
+  <div class="map-section">
+    <div class="map-root">
+      <button class="map-root-head" style="background:var(--rose);color:#fff;" onclick="goTo(5,null)">
+        <span class="map-root-icon">6</span> 신분제와 사회 구조
+      </button>
+      <div class="map-children">
+        <button class="map-node rose" onclick="goTo(5,'a-sb-godae')">🏺 고대 — 귀족·평민·천민 / 골품제</button>
+        <button class="map-node rose" onclick="goTo(5,'a-sb-goryeo')">🏯 고려 — 양천제 / 향·부곡·소</button>
+        <button class="map-node rose" onclick="goTo(5,'a-sb-joseon')">📜 조선 — 양반·중인·상민·천민 / 향촌 질서</button>
+        <button class="map-node rose" onclick="goTo(5,'a-sb-late')">📈 조선 후기 — 신분 질서의 변동</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<button class="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function switchTab(idx){
+  document.querySelectorAll('.tab-btn').forEach(function(b,i){ b.classList.toggle('active', i===idx); });
+  document.querySelectorAll('.tab-panel').forEach(function(p,i){ p.classList.toggle('active', i===idx); });
+  window.scrollTo({top:0, behavior:'smooth'});
+  if(idx <= 5) renderQuiz(idx); // 탭 6은 개념지도
+}
+
+var QUIZ_DATA = {
+  0: {
+    ox:[
+      {q:"비변사는 왜란과 호란 이후 국정의 모든 업무를 총괄하는 최고 통치 기구로 변화하였다.",a:true,exp:"비변사는 원래 임시 관청이었으나 전란 이후 최고 통치 기구로 강화되었다. 이로 인해 의정부와 6조의 기능이 축소되었다."},
+      {q:"왜란과 호란 이후 의정부와 6조의 행정 기능은 강화되었다.",a:false,exp:"비변사의 기능이 강화되면서 오히려 의정부와 6조의 행정 기능은 축소되었다."},
+      {q:"붕당 정치는 선조 때 이조 전랑의 임명 문제로 동인과 서인으로 나뉘면서 본격화되었다.",a:true,exp:"선조 때 외척 정치의 청산 방향과 이조 전랑의 임명 문제로 붕당 정치가 본격화되었다."},
+      {q:"예송은 현종 때 일어난 세금 제도에 관한 논쟁이었다.",a:false,exp:"예송은 현종 때 일어났지만 세금 논쟁이 아니라 효종·효종비 장례에서 자의대비의 상복 기간 문제를 둘러싼 성리학적 예법 논쟁이었다."},
+      {q:"숙종 때 잦은 환국으로 서인은 노론과 소론으로 갈라졌다.",a:true,exp:"환국 이후 남인은 사실상 몰락하고, 서인은 노론과 소론으로 분열되었다."},
+      {q:"광해군 때 인목대비를 폐하는 일에 반발한 서인이 인조반정을 일으켰다.",a:true,exp:"광해군이 인목대비를 폐하는 일이 일어나고, 이에 반발한 서인이 인조반정을 일으켜 정국을 주도하게 되었다."},
+      {q:"영조는 탕평책 실시 과정에서 서원을 대폭 확대하여 붕당의 근거지를 강화하였다.",a:false,exp:"영조는 붕당의 근거지인 서원을 대폭 정리하였다. 서원 철폐(47곳 제외)는 흥선 대원군의 정책이다."},
+      {q:"영조는 균역법을 시행하여 백성들의 군포 부담을 줄여 주었다.",a:true,exp:"균역법은 군포를 기존 2필에서 1필로 감소시킨 영조의 민생 개혁 정책이다."},
+      {q:"정조는 규장각을 설치하여 왕권을 뒷받침하는 군사적 기구로 삼았다.",a:false,exp:"규장각은 정책 자문 기구였다. 왕권을 뒷받침하는 군사적 기반은 친위 부대 장용영이다."},
+      {q:"정조의 탕평 정치로 붕당 정치의 폐단이 완전히 없어졌다.",a:false,exp:"탕평 정치는 붕당 정치의 폐단을 완전히 없애지 못하였다. 특히 측근 권력 집중 현상은 정조 사후 세도 정치 발생의 원인이 되었다."}
+    ],
+    mc:[
+      {q:"왜란과 호란 이후 국정의 모든 업무를 총괄하는 최고 통치 기구로 변화한 기관은?",opts:["의정부","비변사","훈련도감","규장각"],a:1,exp:"비변사는 원래 임시 관청이었으나 전란 이후 최고 통치 기구로 강화되었고, 이로 인해 의정부와 6조의 기능이 축소되었다."},
+      {q:"인조반정을 일으킨 붕당은?",opts:["동인","북인","서인","남인"],a:2,exp:"광해군이 인목대비를 폐하는 일에 반발한 서인이 인조반정을 일으켜 정국을 주도하게 되었다."},
+      {q:"예송(禮訟)이 일어난 왕대는?",opts:["선조","광해군","인조","현종"],a:3,exp:"현종 때 두 차례의 예송으로 서인과 남인의 대립이 심해졌다."},
+      {q:"영조의 탕평 정치에 대한 설명으로 옳지 않은 것은?",opts:["탕평파를 육성하여 국정을 운영하였다.","이조 전랑의 권한을 약화하였다.","규장각을 설치하여 왕권을 강화하였다.","균역법을 시행하여 군포 부담을 줄였다."],a:2,exp:"규장각을 설치한 것은 정조이다. 영조는 탕평파 육성, 서원 정리, 이조 전랑 권한 약화, 균역법 시행 등을 실시하였다."},
+      {q:"정조가 왕권을 뒷받침하는 군사적 기반으로 설치한 친위 부대는?",opts:["훈련도감","속오군","장용영","규장각"],a:2,exp:"정조는 친위 부대 장용영을 설치하여 왕권을 뒷받침하는 군사적 기반을 강화하였다."},
+      {q:"지방에서 양반부터 노비까지 포함하여 편성된 지방 방위 부대는?",opts:["훈련도감","5위","속오군","장용영"],a:2,exp:"속오군은 임진왜란 이후 지방 방위를 위해 양반부터 노비까지 포함하여 편성된 부대이다."}
+    ],
+    hard:[
+      {q:"왜란·호란 이후 조선의 통치 체제 변화로 옳은 것을 모두 고른 것은?\nㄱ. 비변사가 국정 최고 통치 기구로 강화되었다.\nㄴ. 의정부와 6조의 행정 기능이 강화되었다.\nㄷ. 훈련도감이 설치되고 5군영 체제가 완성되었다.\nㄹ. 지방에서는 속오군이 편성되었다.",opts:["ㄱ, ㄴ","ㄱ, ㄷ, ㄹ","ㄴ, ㄷ","ㄴ, ㄹ"],a:1,exp:"ㄴ이 틀렸다. 왜란·호란 이후 비변사가 강화되면서 의정부와 6조의 기능은 오히려 축소되었다. ㄱ, ㄷ, ㄹ이 모두 옳다."},
+      {q:"붕당 정치에 대한 설명으로 옳은 것을 모두 고른 것은?\nㄱ. 선조 때 이조 전랑의 임명 문제로 동인과 서인으로 나뉘면서 본격화되었다.\nㄴ. 지방 사족의 의견을 공론으로 수렴하고 붕당 간 비판적 견제가 가능한 긍정적 측면이 있었다.\nㄷ. 숙종 때 환국으로 서인은 노론과 소론으로 갈라졌다.\nㄹ. 예송 논쟁은 현종 때 일어난 세금 제도 논쟁이었다.",opts:["ㄱ, ㄴ, ㄷ","ㄱ, ㄴ, ㄹ","ㄴ, ㄷ, ㄹ","ㄱ, ㄷ, ㄹ"],a:0,exp:"ㄹ이 틀렸다. 예송은 성리학적 예법·종법 문제를 둘러싼 논쟁이었지 세금 제도 논쟁이 아니었다. ㄱ, ㄴ, ㄷ이 모두 옳다."},
+      {q:"영조와 정조의 탕평 정치를 비교한 것으로 옳지 않은 것만 고른 것은?\nㄱ. 영조는 탕평파를 육성하여 국정을 운영하였다.\nㄴ. 정조는 서원을 대폭 정리하고 이조 전랑의 권한을 약화하였다.\nㄷ. 정조는 규장각을 설치하여 왕권을 뒷받침하는 정책 자문 기구로 삼았다.\nㄹ. 두 왕의 탕평 정치는 붕당 정치의 폐단을 완전히 없앴다.",opts:["ㄱ, ㄴ","ㄴ, ㄹ","ㄷ, ㄹ","ㄱ, ㄷ"],a:1,exp:"ㄴ: 서원 정리와 이조 전랑 권한 약화는 영조의 정책이다. ㄹ: 탕평 정치는 붕당 정치의 폐단을 완전히 없애지 못하였다."}
+    ]
+  },
+  1: {
+    ox:[
+      {q:"세도 정치는 순조, 헌종, 철종 3대 약 60년간 이어졌다.",a:true,exp:"정조 사망 후 순조부터 철종까지 안동 김씨 등 세도 가문이 정치를 주도하였다."},
+      {q:"세도 정치 시기 세도 가문이 비변사의 주요 관직을 차지하면서 왕권이 강화되었다.",a:false,exp:"세도 가문이 비변사 주요 관직을 독점하면서 세도 가문을 견제할 세력이 없어지고 오히려 왕권이 약해졌다."},
+      {q:"홍경래는 몰락 양반 출신으로 서북 지방에 대한 차별과 세도 정권의 수탈에 불만을 품고 난을 일으켰다.",a:true,exp:"홍경래의 난(1811)은 서북 지방 차별과 세도 정권 수탈에 대한 저항이었다."},
+      {q:"임술 농민 봉기 이후 정부는 삼정이정청을 설치하여 삼정의 문란을 근본적으로 해결하였다.",a:false,exp:"삼정이정청을 설치하였지만 근본적인 문제를 해결하지 못하였다."},
+      {q:"홍경래의 난에는 농민, 상인, 광산 노동자 등 다양한 계층이 참여하였다.",a:true,exp:"홍경래의 난에는 농민, 상인, 광산 노동자 등 다양한 계층이 참여하였다."},
+      {q:"군정의 폐단으로 죽은 사람이나 어린아이에게도 군포를 징수하였다. (백골징포·황구첨정)",a:true,exp:"군정의 폐단 중 하나로 죽은 사람(백골징포)이나 어린아이(황구첨정)에게도 군포를 징수하는 폐단이 발생하였다."}
+    ],
+    mc:[
+      {q:"세도 정치 시기 가장 핵심적인 세도 가문으로 옳게 짝지어진 것은?",opts:["안동 김씨 — 경주 이씨","안동 김씨 — 풍양 조씨","전주 이씨 — 풍양 조씨","반남 박씨 — 경주 이씨"],a:1,exp:"세도 정치는 순조 때 안동 김씨 김조순을 중심으로 시작되었고, 이후 풍양 조씨가 함께 세도 가문으로 등장하였다."},
+      {q:"삼정의 문란 중 '군정의 폐단'에 해당하는 것은?",opts:["정해진 것 이상의 전세를 거두었다.","백성에게 억지로 곡식을 빌려주고 이자를 거두었다.","죽은 사람이나 어린아이에게도 군포를 징수하였다.","원납전이라는 기부금을 강제로 거두었다."],a:2,exp:"군정의 폐단은 죽은 사람(백골징포)이나 어린아이(황구첨정)에게도 군포를 징수한 것이다."},
+      {q:"임술 농민 봉기(1862) 이후 정부가 삼정의 폐단을 해결하려고 설치한 임시 관청은?",opts:["비변사","삼정이정청","규장각","훈련도감"],a:1,exp:"임술 농민 봉기 이후 정부는 삼정이정청을 설치하였지만 근본적인 문제를 해결하지 못하였다."},
+      {q:"홍경래의 난(1811)이 일어난 주요 원인으로 옳은 것은?",opts:["서원 철폐에 대한 지방 유생의 반발","경복궁 중건을 위한 강제 동원에 대한 저항","서북 지방에 대한 차별과 세도 정권의 수탈","호포제 실시에 대한 양반의 반발"],a:2,exp:"홍경래는 몰락 양반 출신으로 서북 지방에 대한 차별과 세도 정권의 수탈에 불만을 품고 난을 일으켰다(1811)."}
+    ],
+    hard:[
+      {q:"세도 정치와 농민 봉기에 대한 설명으로 옳은 것을 모두 고른 것은?\nㄱ. 정조 사망 후 순조부터 세도 정치가 시작되었다.\nㄴ. 안동 김씨와 풍양 조씨가 대표적인 세도 가문이었다.\nㄷ. 세도 정치로 왕권이 강화되고 정치 기강이 확립되었다.\nㄹ. 홍경래의 난에는 농민, 상인, 광산 노동자 등 다양한 계층이 참여하였다.",opts:["ㄱ, ㄴ, ㄷ","ㄱ, ㄴ, ㄹ","ㄴ, ㄷ, ㄹ","ㄱ, ㄷ, ㄹ"],a:1,exp:"ㄷ이 틀렸다. 세도 정치로 세도 가문을 견제할 세력이 없어져 왕권이 약해지고 정치 기강이 문란해졌다. ㄱ, ㄴ, ㄹ이 모두 옳다."},
+      {q:"다음 농민 봉기에 대한 설명으로 옳은 것을 모두 고른 것은?\nㄱ. 홍경래의 난은 1811년 서북 지방에서 시작되었다.\nㄴ. 임술 농민 봉기의 진주 봉기는 유계춘을 중심으로 일어났다.\nㄷ. 임술 농민 봉기 이후 정부는 삼정이정청을 설치하여 삼정의 문란을 근본적으로 해결하였다.\nㄹ. 홍경래의 난에는 농민, 상인, 광산 노동자 등 다양한 계층이 참여하였다.",opts:["ㄱ, ㄴ, ㄷ","ㄱ, ㄴ, ㄹ","ㄴ, ㄷ, ㄹ","ㄱ, ㄷ, ㄹ"],a:1,exp:"ㄷ이 틀렸다. 삼정이정청을 설치하였지만 근본적인 문제를 해결하지 못하였다. ㄱ, ㄴ, ㄹ이 모두 옳다."}
+    ]
+  },
+  2: {
+    ox:[
+      {q:"흥선 대원군은 비변사를 사실상 폐지하고 의정부와 삼군부의 기능을 부활시켰다.",a:true,exp:"흥선 대원군은 세도 정치의 중심이었던 비변사를 사실상 폐지하고 의정부와 삼군부의 기능을 부활하였다."},
+      {q:"호포제는 기존에 군포를 면제받던 양반에게도 군포를 징수한 제도이다.",a:true,exp:"흥선 대원군의 호포제로 양반도 군포를 내게 되었고, 이에 양반들이 강력하게 반발하였다."},
+      {q:"흥선 대원군은 전국의 모든 서원을 철폐하고 단 하나도 남기지 않았다.",a:false,exp:"흥선 대원군은 전국 서원 중 47곳만 남기고 나머지를 철폐하였다."},
+      {q:"당백전 발행으로 물가가 폭등하는 등 경제적 혼란이 발생하였다.",a:true,exp:"당백전은 실질 가치가 상평통보의 5~6배에 불과했음에도 100배로 통용시키려 하여 화폐 유통 질서가 혼란에 빠졌다."},
+      {q:"사창제는 환곡 운영을 민간에 맡겨 향리의 중간 착복을 막고자 한 제도이다.",a:true,exp:"사창제는 환곡 운영을 민간에 맡겨 향리의 중간 착복을 방지하고자 한 흥선 대원군의 개혁 정책이다."},
+      {q:"흥선 대원군은 서원 철폐로 지방 유생들과 양반들의 강한 지지를 얻었다.",a:false,exp:"서원 철폐로 지방 유생들과 양반들이 강력하게 반발하였다. 이는 흥선 대원군에게 큰 정치적 부담으로 다가왔다."}
+    ],
+    mc:[
+      {q:"흥선 대원군이 왕권 강화를 위해 편찬한 새로운 법전은?",opts:["경국대전","속대전","대전회통","동국문헌비고"],a:2,exp:"흥선 대원군은 새로운 법전인 『대전회통』을 편찬하여 통치 체제를 재정비하였다."},
+      {q:"흥선 대원군이 경복궁 중건에 필요한 재정을 마련하기 위해 발행한 고액 화폐는?",opts:["상평통보","원납전","당백전","엽전"],a:2,exp:"당백전은 명목상 상평통보의 100배 가치였으나 실질 가치가 낮아 물가 폭등 등 경제적 혼란을 일으켰다."},
+      {q:"흥선 대원군의 서원 철폐에 대한 설명으로 옳은 것은?",opts:["전국의 모든 서원을 철폐하였다.","47곳을 제외한 나머지 서원을 철폐하였다.","서원의 면세 특권만 없앴고 철폐하지는 않았다.","지방 유생들의 지지를 받아 강력하게 추진하였다."],a:1,exp:"흥선 대원군은 전국 서원 중 47곳만 남기고 나머지를 모두 철폐하였다. 지방 유생과 양반들이 강력히 반발하였다."},
+      {q:"흥선 대원군이 환곡의 문란을 개혁하기 위해 실시한 제도는?",opts:["호포제","사창제","균역법","양전 사업"],a:1,exp:"사창제는 환곡 운영을 민간에 맡겨 향리의 중간 착복을 막고자 한 제도이다."}
+    ],
+    hard:[
+      {q:"흥선 대원군의 개혁 정책과 그 내용의 연결이 잘못된 것만 고른 것은?\nㄱ. 비변사 폐지 — 의정부와 삼군부의 기능 부활\nㄴ. 호포제 — 환곡 운영을 민간에 맡겨 착복 방지\nㄷ. 사창제 — 양반에게도 군포를 징수\nㄹ. 서원 철폐 — 47곳만 남기고 나머지 폐지",opts:["ㄱ, ㄹ","ㄴ, ㄷ","ㄱ, ㄴ","ㄷ, ㄹ"],a:1,exp:"ㄴ과 ㄷ이 서로 바뀌었다. 호포제는 양반에게도 군포를 징수한 것이고, 사창제는 환곡 운영을 민간에 맡겨 착복을 방지한 것이다. ㄱ과 ㄹ은 옳다."},
+      {q:"흥선 대원군의 정책에 대한 설명으로 옳은 것을 모두 고른 것은?\nㄱ. 양전 사업으로 토지 대장에 누락된 은결을 파악하였다.\nㄴ. 경복궁 중건을 위해 원납전 징수와 당백전 발행으로 물가가 폭등하였다.\nㄷ. 호포제 실시로 양반들의 지지를 받아 군정의 문란을 해결하였다.\nㄹ. 서원 철폐로 민생 안정과 국가 재정 확충의 효과가 나타났다.",opts:["ㄱ, ㄴ, ㄷ","ㄱ, ㄴ, ㄹ","ㄴ, ㄷ, ㄹ","ㄱ, ㄷ, ㄹ"],a:1,exp:"ㄷ이 틀렸다. 호포제 실시로 양반들이 강력하게 반발하였다. ㄱ, ㄴ, ㄹ이 모두 옳다."}
+    ]
+  },
+  // TAB 3: 국제 관계와 대외 교류
+  3: {
+    ox:[
+      {q:"조공·책봉 관계는 실질적 종속 관계로, 동아시아 각국이 중국에 완전히 복종하는 관계였다.",a:false,exp:"조공·책봉 관계는 실질적 종속이 아닌 의례적(형식·격식만 갖춘) 외교 관계였다. 각국은 자국의 경제적·문화적 이익을 위해 참여하였다."},
+      {q:"고구려는 자국 중심의 독자적인 천하관을 가지고 신라와 동부여 등을 속국처럼 여겼다.",a:true,exp:"고구려는 독자적인 천하관을 가졌으며, 광개토 대왕릉비에 백제와 신라를 '속민'이라고 기록하였다."},
+      {q:"삼국의 문물은 일본의 고대 아스카 문화 형성에 기여하였다.",a:true,exp:"삼국이 한자·유교·불교·율령 등을 일본에 전함으로써 일본의 고대 아스카 문화 형성에 기여하였다."},
+      {q:"장보고는 황해에 청해진을 설치하여 해상 무역을 장악하였다.",a:false,exp:"장보고는 완도(황해가 아님)에 청해진을 설치하여 해적을 소탕하고 신라·당·일본을 연결하는 해상 무역을 장악하였다."},
+      {q:"고려의 서희는 거란과의 외교 담판으로 강동 6주를 획득하였다.",a:true,exp:"거란의 1차 침입(993) 때 서희는 외교 담판을 벌여 강동 6주를 획득하였다."},
+      {q:"강감찬의 귀주 대첩 이후 고려·송·거란 삼국 사이에 세력 균형이 이루어져 평화가 유지되었다.",a:true,exp:"귀주 대첩(1019) 이후 고려·송·거란(요) 삼국 사이에 세력 균형이 형성되었다."},
+      {q:"공민왕의 반원 정책에 반발하여 이성계가 위화도 회군을 단행하였다.",a:false,exp:"명이 고려에 철령위 설치를 통보하자 우왕·최영이 요동 정벌을 추진하였고, 이에 이성계가 위화도 회군을 단행하였다. 공민왕의 반원 정책에 반발한 것이 아니다."},
+      {q:"조선은 사대교린의 원칙에 따라 명에 대해서는 사대, 여진·일본 등에 대해서는 교린 외교를 펼쳤다.",a:true,exp:"사대교린은 조선 외교의 기본 원칙으로, 명(청)에 대한 사대와 주변국에 대한 교린을 병행하였다."},
+      {q:"조선 후기 북학론은 청을 무조건 배척해야 한다는 주장이다.",a:false,exp:"북학론은 청을 무조건 배척할 것이 아니라 청의 문물을 적극 수용해야 한다는 주장이다. 18세기경에 제기되었다."},
+      {q:"통신사는 임진왜란 이후 조선이 일본에 파견한 외교 사절로, 양국의 문물 교류에도 기여하였다.",a:true,exp:"임진왜란 이후 국교가 단절되었으나 에도 막부의 요청으로 통신사가 파견 재개되었으며, 외교 + 문물 교류의 역할을 하였다."}
+    ],
+    mc:[
+      {q:"고려 거란의 1차 침입 때 외교 담판을 벌여 강동 6주를 획득한 인물은?",opts:["강감찬","서희","을지문덕","양규"],a:1,exp:"서희는 993년 거란의 1차 침입 때 외교 담판을 벌여 강동 6주를 획득하였다."},
+      {q:"10~12세기 고려의 국제 관계에 대한 설명으로 옳은 것은?",opts:["고려는 송과만 외교 관계를 맺었다.","한 나라가 국제 관계를 주도하는 다극 체제였다.","여러 나라가 세력 균형을 이루는 다원적 외교를 펼쳤다.","거란과는 줄곧 적대 관계만 유지하였다."],a:2,exp:"10~12세기에는 한 나라가 주도하는 것이 아니라 여러 나라가 세력 균형을 이루고 있었다. 고려는 송·거란(요)·여진(금) 등과 유연한 다원적 관계를 맺었다."},
+      {q:"몽골의 고려 침략(1231) 이후 고려 정부가 취한 조치는?",opts:["개경에서 결사 항전","강화도로 천도하여 항전","평양으로 천도","즉시 몽골에 항복"],a:1,exp:"고려 정부는 강화도로 수도를 옮기고 몽골군에 맞서 싸웠으나, 무신 정권이 무너지자 강화를 맺고 개경으로 환도하였다(1270)."},
+      {q:"조선 세종 때 왜구의 근거지를 토벌한 곳과 이후 일본에 개방한 무역항의 연결이 옳은 것은?",opts:["대마도 토벌 → 3포(제포·염포·부산포) 개방","쓰시마섬 토벌 → 3포(제포·염포·부산포) 개방","제주도 토벌 → 1포 개방","쓰시마섬 토벌 → 부산포 1곳만 개방"],a:1,exp:"세종 때 왜구의 근거지인 쓰시마섬(대마도)을 토벌하였다. 이후 일본의 교역 요청으로 3포(제포·염포·부산포)를 개방하여 제한적으로 무역을 허용하였다."},
+      {q:"병자호란 이후 조선에서 나타난 사상으로, 조선이 중화의 정통을 계승했다는 주장은?",opts:["북벌론","북학론","조선 중화주의","실학"],a:2,exp:"조선 중화주의는 청에 당한 치욕 속에서 조선이 명을 대신하여 중화 문명을 계승했다는 사상이다. 북벌론은 청에 복수하자는 주장이고, 북학론은 청의 문물을 수용하자는 주장이다."},
+      {q:"고려 공민왕 때의 상황으로 옳지 않은 것은?",opts:["원·명 교체기를 이용하여 명과 외교 관계를 맺었다.","반원 정책을 추진하였다.","명이 철령위 설치를 통보하자 요동 정벌을 추진하였다.","이성계가 위화도 회군을 단행하였다."],a:2,exp:"명의 철령위 설치 통보와 이에 따른 요동 정벌 추진·위화도 회군은 공민왕 사후의 일이다. 우왕 때의 사건이다."}
+    ],
+    hard:[
+      {q:"고대의 국제 관계에 대한 설명으로 옳은 것을 모두 고른 것은?\nㄱ. 조공·책봉 관계는 실질적 종속이 아닌 의례적 외교 관계였다.\nㄴ. 고구려는 독자적 천하관을 가지고 신라와 동부여를 속국처럼 여겼다.\nㄷ. 삼국의 문물이 전해져 일본의 고대 나라 문화가 형성되었다.\nㄹ. 장보고는 완도에 청해진을 설치하여 당·신라·일본 간 해상 무역을 장악하였다.",opts:["ㄱ, ㄴ, ㄷ","ㄱ, ㄴ, ㄹ","ㄴ, ㄷ, ㄹ","ㄱ, ㄷ, ㄹ"],a:1,exp:"ㄷ이 틀렸다. 삼국의 문물이 전해져 형성된 것은 일본의 '아스카 문화'이다. '나라 문화'가 아니다. ㄱ, ㄴ, ㄹ이 옳다."},
+      {q:"고려의 대외 관계에 대한 설명으로 옳은 것을 모두 고른 것은?\nㄱ. 거란의 1차 침입 때 서희의 외교 담판으로 강동 6주를 획득하였다.\nㄴ. 거란의 3차 침입 때 강감찬이 귀주 대첩에서 거란군을 물리쳤다.\nㄷ. 별무반을 조직하여 거란을 정벌하고 동북 9성을 설치하였다.\nㄹ. 공민왕은 원·명 교체기를 이용하여 명과 외교 관계를 맺었다.",opts:["ㄱ, ㄴ, ㄷ","ㄱ, ㄴ, ㄹ","ㄴ, ㄷ, ㄹ","ㄱ, ㄷ, ㄹ"],a:1,exp:"ㄷ이 틀렸다. 별무반을 조직하여 정벌하고 동북 9성을 설치한 것은 거란이 아니라 여진이다. ㄱ, ㄴ, ㄹ이 옳다."},
+      {q:"조선의 대외 관계에 대한 설명으로 옳지 않은 것을 모두 고른 것은?\nㄱ. 사대교린의 원칙에 따라 명에 대해 사대, 주변국에 대해 교린 외교를 펼쳤다.\nㄴ. 세종 때 4군 6진을 개척하여 압록강·두만강까지 영토를 확장하였다.\nㄷ. 임진왜란 이후 에도 막부의 요청으로 통신사를 파견하였다.\nㄹ. 병자호란 이후 18세기경에는 청을 무조건 배척하자는 북학론이 제기되었다.",opts:["ㄱ, ㄴ","ㄹ만","ㄴ, ㄹ","ㄷ, ㄹ"],a:1,exp:"ㄹ만 틀렸다. 북학론은 청을 무조건 배척할 것이 아니라 청의 문물을 적극 수용해야 한다는 주장이다. 청을 무조건 배척하자는 것은 북벌론이다. ㄱ, ㄴ, ㄷ은 모두 옳다."}
+    ]
+  },
+  // TAB 4: 수취 체제와 경제생활
+  4: {
+    ox:[
+      {q:"삼국의 수취 체제에서 역(役)은 15세 이상 성인 남자에게 부과되었다.",a:true,exp:"삼국에서 15세 이상의 성인 남자에게 요역(노동력 동원)과 군역을 부과하였다."},
+      {q:"신라촌락문서는 조세 징수 목적으로 3년마다 작성되었으며, 가호를 9등급으로 나누어 차등 부과하였다.",a:true,exp:"신라촌락문서는 세금 징수 목적으로 3년에 한 번씩 작성되었으며, 가호를 9등급으로 나누어 차등 부과하였다."},
+      {q:"신문왕은 녹읍을 폐지하고 관료전과 녹봉으로 대체하여 국가의 농민 지배력을 강화하였다.",a:true,exp:"신문왕은 귀족의 경제적 기반이었던 녹읍을 폐지하고, 관료전과 녹봉으로 대체하여 국가의 농민 지배력을 강화하였다."},
+      {q:"고려의 전시과는 토지에서 조세를 거둘 수 있는 수조권을 관리가 죽을 때까지 보유할 수 있는 제도였다.",a:false,exp:"전시과로 지급된 토지는 관리가 죽거나 관직에서 물러나면 반납하는 게 원칙이었다. 다만 5품 이상의 관리에게는 자손에게 세습할 수 있는 공음전을 지급하였다."},
+      {q:"조선 세종 때 시행된 공법은 토지 비옥도(전분 6등급)와 풍흉의 정도(연분 9등급)에 따라 전세를 차등 징수하였다.",a:true,exp:"공법은 세종 때 시행되었으며, 전분 6등급과 연분 9등급으로 나누어 전세를 차등 징수하였다."},
+      {q:"방납(防納)이란 농민이 직접 공납을 납부하는 것을 말한다.",a:false,exp:"방납은 대납업자들이 공물을 대신 납부하고 중간 이윤을 취하기 위해 농민들이 직접 공물을 납부하는 것을 방해하는 행위이다."},
+      {q:"대동법은 집집마다 토산물로 부과하던 공납을 토지 1결당 쌀 12두씩 납부하도록 한 제도이다.",a:true,exp:"대동법은 광해군 때부터 숙종 때까지 점차 확대 시행되었으며, 공납을 토지 1결당 쌀 12두(또는 삼베·무명·동전)로 납부하게 하였다."},
+      {q:"균역법은 군포 부담을 줄이기 위해 장정 1인당 군포를 1필에서 2필로 늘린 제도이다.",a:false,exp:"균역법은 장정 1인당 군포를 기존 2필에서 1필로 줄인 제도이다. 상민의 군포 부담을 경감하기 위해 영조가 시행하였다."},
+      {q:"조선 후기 모내기법(이앙법)의 보급으로 벼와 보리의 이모작이 가능해졌다.",a:true,exp:"모내기법의 실시로 벼와 보리의 이모작과 광작이 가능해졌으며, 농업 생산력도 크게 증대되었다."},
+      {q:"조선 후기 공인은 대동법 실시 이후 정부에 필요한 물품을 구입하여 조달하는 상인으로 상품 화폐 경제의 발달을 촉진하였다.",a:true,exp:"대동법 실시 이후 공인이 등장하여 정부 물품을 조달하면서 상품 화폐 경제의 발달을 촉진하였다."}
+    ],
+    mc:[
+      {q:"고려 전시과에 대한 설명으로 옳지 않은 것은?",opts:["문무 관료·향리·군인 등에게 녹봉 외에 토지를 지급하였다.","전지와 시지로 나누어 지급하였다.","관직 퇴직·사망 시 반납이 원칙이었다.","경정 전시과(문종)에서 처음으로 시행되었다."],a:3,exp:"전시과는 시정 전시과(경종, 976)에서 처음으로 시행되었다. 경정 전시과(문종, 1076)는 지급 대상을 현직 관리로 제한한 것이다."},
+      {q:"조선의 토지 제도 변화 순서로 옳은 것은?",opts:["과전법 → 직전법 → 관수관급제 → 직전법 폐지","직전법 → 과전법 → 관수관급제 → 직전법 폐지","과전법 → 관수관급제 → 직전법 → 직전법 폐지","직전법 → 관수관급제 → 과전법 폐지"],a:0,exp:"과전법(고려 말~조선 초) → 직전법(세조, 현직 관리만 지급) → 관수관급제(성종, 국가가 수조) → 직전법 폐지의 순서로 변화하였다."},
+      {q:"조선 후기 수취 체제의 변화를 바르게 연결한 것은?",opts:["전세 - 대동법 / 공납 - 영정법 / 군역 - 균역법","전세 - 영정법 / 공납 - 대동법 / 군역 - 균역법","전세 - 균역법 / 공납 - 대동법 / 군역 - 영정법","전세 - 영정법 / 공납 - 균역법 / 군역 - 대동법"],a:1,exp:"영정법(인조): 전세 1결당 4~6두 고정 / 대동법(광해군~숙종): 공납을 1결당 쌀 12두로 납부 / 균역법(영조): 군포 2필→1필 감소."},
+      {q:"조선 후기 사상(私商)의 활동에 대한 설명으로 옳은 것은?",opts:["시전 상인의 허가를 받아 합법적으로 활동하였다.","정조 때 금난전권 철폐(신해통공) 이후 활동이 더욱 활발해졌다.","경강상인과 송상만이 대표적인 사상이었다.","대동법 실시로 사상의 활동이 위축되었다."],a:1,exp:"정조 때 육의전을 제외한 시전 상인의 금난전권을 철폐(신해통공, 1791)하자 사상의 활동은 더욱 활발해졌다. 경강상인·송상·만상·내상 등이 대표적 사상이었다."},
+      {q:"조선 전기 공납 징수 과정에서 나타난 방납(防納)에 대한 설명으로 옳은 것은?",opts:["농민이 공물을 직접 납부하는 행위","국가가 공물 대신 쌀을 걷는 제도","대납업자가 공물을 대신 납부하고 수배의 이익을 챙기는 행위","향리가 공물 수납 과정을 감독하는 제도"],a:2,exp:"방납은 대납업자들이 공물을 대신 납부하고 중간 이윤을 취하기 위해 농민들이 직접 공물을 납부하는 것을 방해하는 행위이다. 이 폐단을 해결하기 위해 대동법이 시행되었다."}
+    ],
+    hard:[
+      {q:"신라촌락문서에 대한 설명으로 옳은 것을 모두 고른 것은?\nㄱ. 세금 징수 목적으로 작성되었다.\nㄴ. 3년마다 촌락의 인구·토지·가축·수목 등을 기록하였다.\nㄷ. 가호를 9등급으로 나누어 차등 부과하였다.\nㄹ. 일본 교토에서 발견되어 현재 일본 나라에 보존되어 있다.",opts:["ㄱ, ㄴ, ㄷ","ㄱ, ㄴ, ㄹ","ㄴ, ㄷ, ㄹ","ㄱ, ㄷ, ㄹ"],a:0,exp:"ㄹ이 틀렸다. 신라촌락문서는 일본 나라(奈良)에 보존되어 있으며 교토에서 발견된 것이 아니다. ㄱ, ㄴ, ㄷ이 모두 옳다."},
+      {q:"조선 후기 경제 변화에 대한 설명으로 옳은 것을 모두 고른 것은?\nㄱ. 모내기법 보급으로 이모작과 광작이 가능해졌다.\nㄴ. 대동법 실시 이후 공인이 등장하여 상품 화폐 경제가 촉진되었다.\nㄷ. 정조 때 금난전권 철폐(신해통공, 1791)로 사상의 활동이 위축되었다.\nㄹ. 18세기 말 민영 수공업이 허용되고 선대제 방식이 유행하였다.",opts:["ㄱ, ㄴ, ㄷ","ㄱ, ㄴ, ㄹ","ㄴ, ㄷ, ㄹ","ㄱ, ㄷ, ㄹ"],a:1,exp:"ㄷ이 틀렸다. 금난전권 철폐(신해통공)로 사상의 활동은 오히려 더욱 활발해졌다. ㄱ, ㄴ, ㄹ이 모두 옳다."},
+      {q:"고려와 조선의 토지 제도를 비교한 것으로 옳지 않은 것을 고른 것은?\nㄱ. 고려 전시과: 전지(곡물 수취)와 시지(땔감 수취)로 구분하여 지급하였다.\nㄴ. 고려 공음전: 5품 이상의 관리에게만 지급하는 세습 가능한 토지이다.\nㄷ. 조선 직전법: 현직 관리뿐만 아니라 전직 관리에게도 과전을 지급하는 제도이다.\nㄹ. 조선 관수관급제: 국가가 직접 수조하여 관리에게 나누어주는 제도이다.",opts:["ㄱ, ㄴ","ㄷ만","ㄴ, ㄷ","ㄷ, ㄹ"],a:1,exp:"ㄷ만 틀렸다. 직전법은 전직 관리에게도 지급했던 과전법과 달리, 현직 관리에게만 과전을 지급하는 제도이다. ㄱ, ㄴ, ㄹ은 모두 옳다."}
+    ]
+  },
+  // TAB 5: 신분제와 사회 구조
+  5: {
+    ox:[
+      {q:"고대의 신분은 능력보다 그가 속한 친족의 사회적 지위에 따라 결정되었다.",a:true,exp:"고대 사회에서 개인의 신분은 능력보다 그가 속한 친족의 사회적 지위에 따라 결정되었다."},
+      {q:"신라의 골품제는 성골·진골·6두품·5두품·4두품으로 구성되며, 지방민도 골품의 편제 대상이었다.",a:false,exp:"골품제에서 지방민은 골품의 편제 대상이 아니었다. 골품은 수도 6부의 지배층을 중심으로 편성되었다."},
+      {q:"골품제는 관등·관직 승진에만 제한을 두었고 일상생활에는 영향을 미치지 않았다.",a:false,exp:"골품제는 관등과 관직 승진에 제한을 두었을 뿐만 아니라, 가옥·수레의 크기·옷차림·그릇의 사용 등 일상생활까지 규제하였다."},
+      {q:"고려의 신분제는 법제적으로 양인과 천인으로 구분된 양천제였다.",a:true,exp:"고려의 신분제는 법제적으로 양인과 천인으로 구분된 양천제였으나, 실제 사회 신분은 귀족·중류층·평민·천민으로 나뉘었다."},
+      {q:"고려의 향·부곡·소 주민들은 일반 군현 주민보다 과중한 조세와 부역을 부담하였다.",a:true,exp:"향·부곡·소 주민들은 잡척(雜尺)이라 불리며 과거 응시 자격 없음, 거주지 이동 제한, 과중한 조세와 부역 부담 등 차별을 받았다."},
+      {q:"조선 후기 노비종모법은 노비의 신분을 어머니의 신분에 따르도록 하여 양인 수를 늘린 제도이다.",a:true,exp:"노비종모법은 영조 때 시행되었으며, 공·사노비의 양인 처 소생은 어머니의 신분을 따르도록 하여 노비의 신분 상승 기회를 넓혀 주었다."},
+      {q:"조선의 서얼은 양반의 자식이지만 문과에 응시할 수 없었으며 중인과 같은 대우를 받았다.",a:true,exp:"서얼은 양반의 자식이라도 첩에게서 태어나 문과에 응시할 수 없었으며, 대체로 중인과 같은 대우를 받았다."},
+      {q:"조선 후기 울산 호적 통계에 따르면, 시간이 지날수록 양반의 비율은 감소하고 상민의 비율은 증가하였다.",a:false,exp:"울산 호적 통계(1729~1867)에 따르면, 시간이 지날수록 양반의 비율은 증가(26.3%→65.5%)하고, 상민의 비율은 감소(59.8%→34%), 노비 비율도 감소하였다."},
+      {q:"고려는 신라 골품제 사회보다 개방적이어서 제한적이나마 지위와 신분을 상승시킬 수 있었다.",a:true,exp:"고려는 제한적이나마 지위와 신분을 상승시킬 수 있었으며, 이는 고려 사회가 신라 골품제 사회보다 개방적이었음을 보여 준다."},
+      {q:"조선 후기 신분 질서 변동에서 납속(納粟)은 상민이 양반 신분을 얻는 방법 중 하나였다.",a:true,exp:"납속(나라에 곡식을 바침)은 부유해진 상민이 양반 신분을 얻는 방법 중 하나였다. 공명첩 구매, 족보 매입·위조 등도 활용되었다."}
+    ],
+    mc:[
+      {q:"신라의 골품제에 대한 설명으로 옳지 않은 것은?",opts:["성골·진골·6두품·5두품·4두품으로 구성되었다.","관등과 관직 승진에 제한을 두었다.","가옥·수레의 크기·옷차림·그릇의 사용 등 일상생활까지 규제하였다.","지방민도 골품의 편제 대상이었다."],a:3,exp:"지방민은 골품의 편제 대상이 아니었다. 골품은 수도 6부의 지배층을 중심으로 편성되었다."},
+      {q:"고려의 신분 구성에서 서리·향리·남반·하급 장교 등으로 구성된 통치 기구 하위의 행정 실무 담당층은?",opts:["귀족","중류층","평민","천민"],a:1,exp:"중류층은 통치 기구의 하위에서 행정 실무를 담당하는 서리·향리·남반·하급 장교 등으로 구성되었다. 직역의 대가로 국가로부터 조세를 수취할 수 있는 토지를 받았다."},
+      {q:"조선 시대 양반에 대한 설명으로 옳은 것을 모두 고른 것은?",opts:["과거·음서로 관직 진출, 형벌 집행 특혜 누림","농사·장사를 하지 않고 학문에만 전념하였다.","토지·노비 소유, 녹봉·과전 수취","향촌 운영 참여, 유학자 교양 쌓음"],a:0,exp:"보기 모두 양반의 특징과 관련된 설명이나, 하나만 고르는 문제에서는 과거·음서·형벌 특혜가 가장 핵심적인 법제적 특권이다."},
+      {q:"조선 후기 신분 질서 변동에 대한 설명으로 옳지 않은 것은?",opts:["부유해진 상민이 납속·공명첩 구매 등으로 양반이 되었다.","영조 때 노비종모법을 시행하여 노비의 신분 상승 기회를 넓혔다.","순조 때 중앙 관청 소속 공노비를 해방하였다(1801).","중인의 신분 상승 요구는 모두 받아들여져 차별이 완전히 철폐되었다."],a:3,exp:"서얼에 대한 차별은 점차 완화되었지만, 기술직 중인의 차별 철폐 요구는 받아들여지지 않았다. 중인의 차별이 완전히 철폐된 것은 아니다."},
+      {q:"고려 향·부곡·소 주민에게 가해진 차별이 아닌 것은?",opts:["과거 응시 자격 없음","거주지 이동 제한","일반 양민과의 결혼 금지","과거에 합격하면 일반 군현으로 이주 허용"],a:3,exp:"향·부곡·소 주민은 과거 응시 자격이 없었고, 거주지 이동에 제한을 받았으며, 일반 양민과의 결혼도 금지되었다. 과거 합격 시 이주 허용이라는 제도는 존재하지 않았다."},
+      {q:"조선의 향촌 지배 질서와 관련된 기구의 설명으로 옳은 것은?",opts:["향안은 조선이 양반의 자치를 허용하기 위해 설치한 기구이다.","유향소는 향촌 사회의 여론 수렴·수령 통치 보좌·향리 감독 기능을 하였다.","경재소는 지방에서 유향소를 자율적으로 운영할 수 있게 한 기구이다.","서원과 향약은 16세기 이전에 이미 전국적으로 보급되었다."],a:1,exp:"유향소(향청)는 향촌 사회의 여론을 수렴하여 수령의 통치를 보좌하고 향리를 감독하거나 풍속을 바로잡는 일을 하였다. 향안은 지역 양반의 명단, 경재소는 한성에서 유향소를 중앙에서 통제하는 기구이다."}
+    ],
+    hard:[
+      {q:"고대 신분제에 대한 설명으로 옳은 것을 모두 고른 것은?\nㄱ. 고대의 신분은 능력보다 친족의 사회적 지위에 따라 결정되었다.\nㄴ. 골품제에서 지방민도 골품의 편제 대상이었다.\nㄷ. 신라 골품제는 관등·관직뿐 아니라 일상생활까지 규제하였다.\nㄹ. 천민은 전쟁 포로나 죄인뿐 아니라 경제적 어려움으로도 노비가 될 수 있었다.",opts:["ㄱ, ㄴ, ㄷ","ㄱ, ㄷ, ㄹ","ㄴ, ㄷ, ㄹ","ㄱ, ㄴ, ㄹ"],a:1,exp:"ㄴ이 틀렸다. 골품제에서 지방민은 골품의 편제 대상이 아니었다. ㄱ, ㄷ, ㄹ이 모두 옳다."},
+      {q:"고려 신분제에 대한 설명으로 옳은 것을 모두 고른 것은?\nㄱ. 법제적으로 양인과 천인으로 구분된 양천제였다.\nㄴ. 귀족 중 일부는 대대로 고위 관직에 올라 최고 지배층인 문벌을 형성하였다.\nㄷ. 천민(노비)은 재산으로 취급되었고 부모 중 한 명이 노비이면 자녀도 노비가 되었다.\nㄹ. 향·부곡·소 주민은 일반 군현 주민과 동등한 대우를 받았다.",opts:["ㄱ, ㄴ, ㄷ","ㄱ, ㄴ, ㄹ","ㄴ, ㄷ, ㄹ","ㄱ, ㄷ, ㄹ"],a:0,exp:"ㄹ이 틀렸다. 향·부곡·소 주민들은 잡척이라 불리며 과거 응시 불가, 거주지 이동 제한 등 차별을 받았다. ㄱ, ㄴ, ㄷ이 모두 옳다."},
+      {q:"조선 후기 신분 변동에 대한 설명으로 옳은 것을 모두 고른 것은?\nㄱ. 납속·공명첩 구매 등으로 상민이 양반 신분을 획득할 수 있었다.\nㄴ. 영조의 노비종모법으로 노비의 신분 상승 기회가 확대되었다.\nㄷ. 기술직 중인의 차별 철폐 요구가 받아들여져 모든 차별이 사라졌다.\nㄹ. 울산 호적 통계에 따르면 양반의 비율이 점차 감소하였다.",opts:["ㄱ, ㄴ, ㄷ","ㄱ, ㄴ","ㄴ, ㄷ, ㄹ","ㄱ, ㄷ, ㄹ"],a:1,exp:"ㄷ이 틀렸다. 기술직 중인의 차별 철폐 요구는 받아들여지지 않았다. ㄹ이 틀렸다. 양반의 비율은 증가(26.3%→65.5%)하였다. ㄱ, ㄴ만 옳다."}
+    ]
+  }
+};
+
+var TYPE_CONFIG=[
+  {key:'ox',label:'OX 퀴즈',diff:'기초',diffCls:'diff-basic',barCls:''},
+  {key:'mc',label:'객관식',diff:'중급',diffCls:'diff-mid',barCls:'mc-bar'},
+  {key:'hard',label:'고난도',diff:'고난도',diffCls:'diff-hard',barCls:'hard-bar'}
+];
+var quizState={};
+var lastPicked={};
+
+function getState(t){
+  if(!quizState[t]){quizState[t]={activeType:0,scores:{ox:[0,0],mc:[0,0],hard:[0,0]},answered:{ox:{},mc:{},hard:{}}};lastPicked[t]={ox:{},mc:{},hard:{}};}
+  return quizState[t];
+}
+
+function renderQuiz(t){
+  var root=document.getElementById('quiz-panel-'+t);
+  if(!root)return;
+  var data=QUIZ_DATA[t];if(!data)return;
+  var st=getState(t);var tc=TYPE_CONFIG[st.activeType];var key=tc.key;
+  var qArr=data[key]||[];var done=Object.keys(st.answered[key]).length;
+  var html='<div class="quiz-section"><div class="quiz-header"><div class="quiz-title">📝 단원 문제</div><div class="scoreboard">';
+  TYPE_CONFIG.forEach(function(x){var sc=st.scores[x.key];html+='<span class="score-chip '+x.key+'-chip">'+x.label+': '+sc[0]+'/'+sc[1]+'</span>';});
+  html+='</div></div><div class="quiz-type-bar">';
+  TYPE_CONFIG.forEach(function(x,i){
+    var cnt=Object.keys(st.answered[x.key]).length;var tot=(data[x.key]||[]).length;
+    var ac=(st.activeType===i)?('active-'+x.key):'';
+    html+='<button class="qtype-btn '+ac+'" onclick="setQuizType('+t+','+i+')">'+x.label+' <span class="qtype-count">'+cnt+'/'+tot+'</span></button>';
+  });
+  html+='</div><div class="q-progress-wrap"><div class="q-progress-bar '+tc.barCls+'" style="width:'+(qArr.length?done/qArr.length*100:0)+'%"></div></div>';
+  if(done===qArr.length&&qArr.length>0){html+=buildResult(t,key);}
+  else{qArr.forEach(function(q,qi){html+=buildQCard(t,key,qi,q);});}
+  html+='</div>';root.innerHTML=html;
+}
+
+function buildQCard(t,key,qi,qdata){
+  var st=getState(t);var answered=st.answered[key];
+  var tc=TYPE_CONFIG.find(function(x){return x.key===key;});
+  var isAns=answered[qi]!==undefined;
+  var cardCls=isAns?(answered[qi]==='correct'?'answered-correct':'answered-wrong'):'';
+  var inner='<div class="q-meta"><span class="q-num">Q'+(qi+1)+'.</span><span class="q-difficulty '+tc.diffCls+'">'+tc.diff+'</span></div>';
+  inner+='<div class="q-text">'+qdata.q+'</div>';
+  if(key==='ox'){
+    var oCls='',xCls='';
+    if(isAns){if(answered[qi]==='correct'){oCls=qdata.a?'picked-correct':'';xCls=qdata.a?'':'picked-correct';}else{oCls=qdata.a?'reveal-correct':'picked-wrong';xCls=qdata.a?'picked-wrong':'reveal-correct';}}
+    var dis=isAns?'disabled':'';
+    inner+='<div class="ox-row"><button class="ox-btn '+oCls+'" onclick="submitOX('+t+','+qi+',true)" '+dis+'>⭕</button><button class="ox-btn '+xCls+'" onclick="submitOX('+t+','+qi+',false)" '+dis+'>❌</button></div>';
+  }else{
+    var labels=['A','B','C','D'];inner+='<div class="mc-options">';
+    qdata.opts.forEach(function(opt,oi){
+      var cls='';if(isAns){if(oi===qdata.a){cls='correct';}else if(oi===lastPicked[t][key][qi]){cls='wrong';}}
+      var dis=isAns?'disabled':'';
+      inner+='<button class="mc-opt '+cls+'" onclick="submitMC('+t+','+qi+','+oi+')" '+dis+'><span class="mc-opt-letter">'+labels[oi]+'</span>'+opt+'</button>';
+    });inner+='</div>';
+  }
+  if(isAns){var ok=answered[qi]==='correct';inner+='<div class="q-feedback '+(ok?'correct':'wrong')+'">'+(ok?'✅ 정답!':'❌ 오답!')+' '+qdata.exp+'</div>';}
+  return '<div class="q-card '+cardCls+'" id="qc-'+t+'-'+key+'-'+qi+'">'+inner+'</div>';
+}
+
+function buildResult(t,key){
+  var st=getState(t);var sc=st.scores[key];var pct=sc[1]>0?Math.round(sc[0]/sc[1]*100):0;
+  var msg=pct>=90?'🎉 완벽합니다!':pct>=70?'👍 잘 했어요!':pct>=50?'💪 조금만 더!':'📚 다시 한번 복습해요!';
+  var mb=TYPE_CONFIG.map(function(x){var s=st.scores[x.key];var p=s[1]>0?Math.round(s[0]/s[1]*100):0;var fc=x.key==='mc'?'mc-fill':x.key==='hard'?'hard-fill':'';return '<div class="mini-bar-row"><span class="mini-bar-label">'+x.label+'</span><div class="mini-bar-wrap"><div class="mini-bar-fill '+fc+'" style="width:'+p+'%"></div></div><span class="mini-bar-pct">'+p+'%</span></div>';}).join('');
+  return '<div class="quiz-result"><div class="result-title">완료!</div><div class="result-score">'+sc[0]+' / '+sc[1]+'</div><div class="result-msg">'+msg+' (정답률 '+pct+'%)</div><div class="mini-bars">'+mb+'</div><button class="reset-btn" onclick="resetQuizType('+t+',\''+key+'\')">다시 풀기</button></div>';
+}
+
+function submitOX(t,qi,val){var st=getState(t);var key=TYPE_CONFIG[st.activeType].key;if(st.answered[key][qi]!==undefined)return;var ok=QUIZ_DATA[t][key][qi].a===val;st.answered[key][qi]=ok?'correct':'wrong';st.scores[key][1]++;if(ok)st.scores[key][0]++;renderQuiz(t);scrollToNext(t,key,qi);}
+function submitMC(t,qi,oi){var st=getState(t);var key=TYPE_CONFIG[st.activeType].key;if(st.answered[key][qi]!==undefined)return;lastPicked[t][key][qi]=oi;var ok=QUIZ_DATA[t][key][qi].a===oi;st.answered[key][qi]=ok?'correct':'wrong';st.scores[key][1]++;if(ok)st.scores[key][0]++;renderQuiz(t);scrollToNext(t,key,qi);}
+function scrollToNext(t,key,qi){setTimeout(function(){var arr=QUIZ_DATA[t][key];var st=getState(t);for(var i=qi+1;i<arr.length;i++){if(st.answered[key][i]===undefined){var el=document.getElementById('qc-'+t+'-'+key+'-'+i);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});return;}}},200);}
+function setQuizType(t,i){getState(t).activeType=i;renderQuiz(t);}
+function resetQuizType(t,key){var st=getState(t);st.answered[key]={};st.scores[key]=[0,0];lastPicked[t][key]={};renderQuiz(t);}
+
+
+function goTo(tabIdx, anchorId){
+  switchTab(tabIdx);
+  if(anchorId){
+    setTimeout(function(){
+      var el = document.getElementById(anchorId);
+      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    }, 120);
+  }
+}
+
+window.addEventListener('DOMContentLoaded',function(){renderQuiz(0);});
+</script>
+</body>
+</html>
